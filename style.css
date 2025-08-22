@@ -85,8 +85,6 @@ html, body {
   transform-style: preserve-3d;
   transform: perspective(800px) rotateX(var(--tiltY)) rotateY(var(--tiltX));
   transition: transform 0.2s ease;
-}
-.section:nth-of-type(odd) {
   background: var(--section-alt-bg);
 }
 
