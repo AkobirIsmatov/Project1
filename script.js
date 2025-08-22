@@ -85,6 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initMatrix('matrix-left');
   initMatrix('matrix-right');
+  initCodeBackground();
 });
 
 function populate(data) {
@@ -225,4 +226,33 @@ function initMatrix(id) {
   window.addEventListener('resize', resize);
   resize();
   draw();
+}
+
+function initCodeBackground() {
+  const snippets = [
+    'const x = 42;',
+    'console.log("Hello, world!");',
+    'for (let i = 0; i < 10; i++) { }',
+    'if (value) {\n  doSomething();\n}',
+    'let sum = (a, b) => a + b;'
+  ];
+  document.querySelectorAll('.section').forEach(section => {
+    const bg = document.createElement('div');
+    bg.className = 'code-bg';
+    section.appendChild(bg);
+
+    function cycle() {
+      const snippet = snippets[Math.floor(Math.random() * snippets.length)];
+      bg.textContent = '';
+      bg.style.opacity = 0.05;
+      typeWriter(snippet, bg, 0, () => {
+        setTimeout(() => {
+          bg.style.opacity = 0;
+          setTimeout(cycle, 1000);
+        }, 2000);
+      });
+    }
+
+    cycle();
+  });
 }
