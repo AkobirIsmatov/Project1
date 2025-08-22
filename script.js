@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('show');
+        entry.target.classList.remove('hidden');
       }
     });
   }, { threshold: 0.1 });
@@ -49,6 +50,22 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   backToTop.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  document.addEventListener('mousemove', e => {
+    const x = (e.clientX / window.innerWidth - 0.5) * 10;
+    const y = (e.clientY / window.innerHeight - 0.5) * 10;
+    sections.forEach(sec => {
+      sec.style.setProperty('--tiltX', `${x}deg`);
+      sec.style.setProperty('--tiltY', `${-y}deg`);
+    });
+  });
+
+  document.addEventListener('mouseleave', () => {
+    sections.forEach(sec => {
+      sec.style.setProperty('--tiltX', '0deg');
+      sec.style.setProperty('--tiltY', '0deg');
+    });
   });
 });
 
