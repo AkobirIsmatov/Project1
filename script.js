@@ -1,3 +1,46 @@
+const skillIcons = {
+  Python: 'fa-brands fa-python',
+  Bash: 'fa-solid fa-terminal',
+  Automation: 'fa-solid fa-robot',
+  Scripting: 'fa-solid fa-code',
+  SIEM: 'fa-solid fa-eye',
+  RMM: 'fa-solid fa-screwdriver-wrench',
+  'IDS/IPS': 'fa-solid fa-shield-halved',
+  'EDR/XDR': 'fa-solid fa-shield-halved',
+  'Computer Vision': 'fa-solid fa-eye',
+  'R&D': 'fa-solid fa-flask',
+  'Artificial Intelligence': 'fa-solid fa-brain',
+  LLMs: 'fa-solid fa-brain',
+  'Deep Learning': 'fa-solid fa-layer-group',
+  'Machine Learning': 'fa-solid fa-gears',
+  'Network Security': 'fa-solid fa-network-wired',
+  Cybersecurity: 'fa-solid fa-user-shield',
+  'Data Analytics': 'fa-solid fa-chart-line',
+  Blockchain: 'fa-brands fa-bitcoin',
+  Crypto: 'fa-solid fa-coins'
+};
+
+const roleIcons = {
+  'Cybersecurity Specialist': 'fa-solid fa-user-shield',
+  'Senior Software Engineer': 'fa-solid fa-code',
+  'Network and Security Researcher': 'fa-solid fa-flask',
+  'Forensics Analyst': 'fa-solid fa-magnifying-glass',
+  'Lab Assistant': 'fa-solid fa-vials'
+};
+
+function getSkillIcon(skill) {
+  return skillIcons[skill] || 'fa-solid fa-circle';
+}
+
+function getRoleIcon(title) {
+  for (const [key, icon] of Object.entries(roleIcons)) {
+    if (title.toLowerCase().includes(key.toLowerCase())) {
+      return icon;
+    }
+  }
+  return 'fa-solid fa-briefcase';
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const body = document.body;
   const toggle = document.getElementById('theme-toggle');
@@ -111,7 +154,7 @@ function populate(data) {
   const skills = document.getElementById('skills-list');
   data.skills.forEach(s => {
     const li = document.createElement('li');
-    li.textContent = s;
+    li.innerHTML = `<i class="${getSkillIcon(s)}"></i> ${s}`;
     skills.appendChild(li);
   });
 
@@ -126,7 +169,7 @@ function populate(data) {
   data.education.forEach(item => {
     const div = document.createElement('div');
     div.classList.add('entry');
-    div.innerHTML = `<h3>${item.degree}</h3><p>${item.institution} (${item.start_date} – ${item.end_date})</p>`;
+    div.innerHTML = `<h3><i class="fa-solid fa-graduation-cap"></i> ${item.degree}</h3><p>${item.institution} (${item.start_date} – ${item.end_date})</p>`;
     edu.appendChild(div);
   });
 
@@ -164,7 +207,7 @@ function populate(data) {
 function buildJob(role, company) {
   const div = document.createElement('div');
   div.classList.add('entry');
-  div.innerHTML = `<h3>${role.title} — ${company}</h3><p class="period">${formatPeriod(role.start_date, role.end_date)}</p>`;
+  div.innerHTML = `<h3><i class="${getRoleIcon(role.title)}"></i> ${role.title} — ${company}</h3><p class="period">${formatPeriod(role.start_date, role.end_date)}</p>`;
   const ul = document.createElement('ul');
   role.highlights.forEach(h => {
     const li = document.createElement('li');
