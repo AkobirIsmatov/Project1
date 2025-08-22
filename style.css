@@ -70,9 +70,14 @@ html, body {
 }
 
 .section {
+  --tiltX: 0deg;
+  --tiltY: 0deg;
   padding: 4rem 1rem;
   max-width: 800px;
   margin: auto;
+  transform-style: preserve-3d;
+  transform: perspective(800px) rotateX(var(--tiltY)) rotateY(var(--tiltX));
+  transition: transform 0.2s ease;
 }
 .section:nth-of-type(odd) {
   background: var(--section-alt-bg);
@@ -80,13 +85,13 @@ html, body {
 
 .hidden {
   opacity: 0;
-  transform: translateY(20px);
+  transform: perspective(800px) rotateX(var(--tiltY)) rotateY(var(--tiltX)) translateY(20px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .show {
   opacity: 1;
-  transform: translateY(0);
+  transform: perspective(800px) rotateX(var(--tiltY)) rotateY(var(--tiltX)) translateY(0);
 }
 
 .timeline .entry {
