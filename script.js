@@ -60,6 +60,11 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem('theme', theme);
   });
 
+  const yearSpan = document.getElementById('current-year');
+  if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
+  }
+
   fetch('CV_info.json')
     .then(res => res.json())
     .then(data => populate(data));

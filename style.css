@@ -204,6 +204,18 @@ html, body {
   opacity: 0.9;
 }
 
+.footer {
+  text-align: center;
+}
+
+.footer p {
+  margin: 0.25rem 0;
+}
+
+.footer .built-with {
+  font-size: 0.85rem;
+}
+
 .profile-pic {
   width: 150px;
   height: 150px;
