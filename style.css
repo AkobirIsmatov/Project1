@@ -31,6 +31,23 @@ html, body {
   transition: width 0.25s ease;
 }
 
+.matrix-canvas {
+  position: fixed;
+  top: 0;
+  width: 80px;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 10;
+}
+
+#matrix-left {
+  left: 0;
+}
+
+#matrix-right {
+  right: 0;
+}
+
 .navbar {
   position: sticky;
   top: 4px;
@@ -180,6 +197,12 @@ html, body {
 
 #back-to-top:hover {
   transform: scale(1.1);
+}
+
+@media (max-width: 900px) {
+  .matrix-canvas {
+    display: none;
+  }
 }
 
 @keyframes blink-cursor {
