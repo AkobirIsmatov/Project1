@@ -50,13 +50,19 @@ document.addEventListener('DOMContentLoaded', () => {
   sections.forEach(section => sectionObserver.observe(section));
 
   const backToTop = document.getElementById('back-to-top');
+  const progressBar = document.getElementById('progress-bar');
   window.addEventListener('scroll', () => {
+    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (scrollTop / scrollHeight) * 100;
+    progressBar.style.width = `${scrolled}%`;
     if (window.scrollY > 300) {
       backToTop.classList.add('show');
     } else {
       backToTop.classList.remove('show');
     }
   });
+  window.dispatchEvent(new Event('scroll'));
   backToTop.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });

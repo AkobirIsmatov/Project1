@@ -20,9 +20,20 @@ html, body {
   scroll-behavior: smooth;
 }
 
+#progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0;
+  background: var(--accent-color);
+  z-index: 2000;
+  transition: width 0.25s ease;
+}
+
 .navbar {
   position: sticky;
-  top: 0;
+  top: 4px;
   display: flex;
   justify-content: space-between;
   align-items: center;
