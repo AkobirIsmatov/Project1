@@ -114,6 +114,28 @@ html, body {
   transform: perspective(800px) rotateX(var(--tiltY)) rotateY(var(--tiltX));
   transition: transform 0.2s ease;
   background: var(--section-alt-bg);
+  position: relative;
+  overflow: hidden;
+}
+
+.section > * {
+  position: relative;
+  z-index: 1;
+}
+
+.code-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  font-family: monospace;
+  color: var(--accent-color);
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
+  text-align: center;
+  transition: opacity 1s ease;
 }
 
 .hidden {
