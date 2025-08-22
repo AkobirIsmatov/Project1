@@ -1,12 +1,14 @@
 :root {
   --bg-color: #ffffff;
   --text-color: #222222;
-  --accent-color: #4f46e5;
+  --accent-color: #ff7f50;
+  --section-alt-bg: #fff7f5;
 }
 
 body.dark {
   --bg-color: #1a1a1a;
   --text-color: #f0f0f0;
+  --section-alt-bg: #2a2a2a;
 }
 
 html, body {
@@ -36,6 +38,11 @@ html, body {
   margin: 0;
   padding: 0;
 }
+
+.logo {
+  font-weight: bold;
+  color: var(--accent-color);
+}
 .nav-links a {
   text-decoration: none;
   color: var(--text-color);
@@ -51,14 +58,14 @@ html, body {
 #theme-toggle {
   cursor: pointer;
   background: none;
-  border: 1px solid var(--text-color);
+  border: 1px solid var(--accent-color);
   border-radius: 4px;
   padding: 0.25rem 0.5rem;
-  color: var(--text-color);
+  color: var(--accent-color);
   transition: background 0.3s, color 0.3s;
 }
 #theme-toggle:hover {
-  background: var(--text-color);
+  background: var(--accent-color);
   color: var(--bg-color);
 }
 
@@ -68,10 +75,7 @@ html, body {
   margin: auto;
 }
 .section:nth-of-type(odd) {
-  background: rgba(0,0,0,0.03);
-}
-body.dark .section:nth-of-type(odd) {
-  background: rgba(255,255,255,0.05);
+  background: var(--section-alt-bg);
 }
 
 .hidden {
@@ -110,7 +114,7 @@ body.dark .section:nth-of-type(odd) {
 
 .tagline {
   display: inline-block;
-  white-space: nowrap;
+  white-space: pre-wrap;
   border-right: 2px solid var(--accent-color);
   padding-right: 0.2rem;
   animation: blink-cursor 0.8s steps(2, start) infinite;
