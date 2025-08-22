@@ -28,6 +28,12 @@ const roleIcons = {
   'Lab Assistant': 'fa-solid fa-vials'
 };
 
+const profileAnimals = {
+  GitHub: '🐱',
+  LinkedIn: '🦊',
+  TryHackMe: '🐱‍💻'
+};
+
 function getSkillIcon(skill) {
   return skillIcons[skill] || 'fa-solid fa-circle';
 }
@@ -148,7 +154,8 @@ function populate(data) {
     <p>Location: ${data.contact.location}</p>
   `;
   data.contact.profiles.forEach(p => {
-    contact.innerHTML += `<p>${p.site}: <a href="${p.url}">${p.url}</a></p>`;
+    const animal = profileAnimals[p.site] || '🔗';
+    contact.innerHTML += `<p>${p.site}: <a href="${p.url}" class="animal-link" target="_blank" rel="noopener" aria-label="${p.site}">${animal}</a></p>`;
   });
 
   const skills = document.getElementById('skills-list');
