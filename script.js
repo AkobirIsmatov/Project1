@@ -197,6 +197,7 @@ function initMatrix(id) {
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
   const fontSize = 16;
+  const speed = 0.5;
   let columns = 0;
   let drops = [];
 
@@ -204,7 +205,7 @@ function initMatrix(id) {
     canvas.height = window.innerHeight;
     canvas.width = canvas.offsetWidth;
     columns = Math.floor(canvas.width / fontSize);
-    drops = Array(columns).fill(1);
+    drops = Array(columns).fill(0);
   }
 
   function draw() {
@@ -218,7 +219,7 @@ function initMatrix(id) {
       if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
         drops[i] = 0;
       }
-      drops[i]++;
+      drops[i] += speed;
     }
     requestAnimationFrame(draw);
   }

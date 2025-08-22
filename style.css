@@ -34,7 +34,7 @@ html, body {
 .matrix-canvas {
   position: fixed;
   top: 0;
-  width: 80px;
+  width: 160px;
   height: 100vh;
   pointer-events: none;
   z-index: 10;
