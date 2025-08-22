@@ -279,39 +279,49 @@ function initMatrix(id) {
   const ctx = canvas.getContext('2d');
   const fontSize = 16;
   let columns = 0;
-  let drops = [];
-  let speeds = [];
-  const baseSpeed = 0.1;
-  const speedVariance = 0.1;
+  let rows = 0;
+  let nextRow = [];
+  const glyphs = [];
 
   function resize() {
     canvas.height = window.innerHeight;
     canvas.width = canvas.offsetWidth;
     columns = Math.floor(canvas.width / fontSize);
-    drops = Array.from({ length: columns }, () => Math.random() * canvas.height / fontSize);
-    speeds = Array.from({ length: columns }, () => baseSpeed + Math.random() * speedVariance);
+    rows = Math.floor(canvas.height / fontSize);
+    nextRow = Array(columns).fill(0);
+    glyphs.length = 0;
   }
 
   function draw() {
     ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.font = fontSize + 'px monospace';
-    for (let i = 0; i < drops.length; i++) {
-      const x = i * fontSize;
-      const y = Math.floor(drops[i]) * fontSize;
-      const char = String.fromCharCode(0x30A0 + Math.random() * 96);
 
-      ctx.fillStyle = '#0F0';
-      ctx.fillText(char, x, y - fontSize);
-      ctx.fillStyle = '#FFF';
-      ctx.fillText(char, x, y);
-
-      drops[i] += speeds[i];
-      if (y > canvas.height && Math.random() > 0.975) {
-        drops[i] = 0;
-        speeds[i] = baseSpeed + Math.random() * speedVariance;
+    // type new characters column by column
+    for (let i = 0; i < columns; i++) {
+      if (nextRow[i] < rows) {
+        if (Math.random() < 0.5) {
+          const char = String.fromCharCode(0x30A0 + Math.random() * 96);
+          glyphs.push({ x: i * fontSize, y: nextRow[i] * fontSize, char, brightness: 1 });
+          nextRow[i] += 1;
+        }
+      } else if (Math.random() < 0.02) {
+        nextRow[i] = 0;
       }
     }
+
+    // draw and fade existing characters
+    for (let g = glyphs.length - 1; g >= 0; g--) {
+      const glyph = glyphs[g];
+      const b = glyph.brightness;
+      ctx.fillStyle = b > 0.8 ? `rgba(255,255,255,${b})` : `rgba(0,255,0,${b})`;
+      ctx.fillText(glyph.char, glyph.x, glyph.y);
+      glyph.brightness -= 0.02;
+      if (glyph.brightness <= 0) {
+        glyphs.splice(g, 1);
+      }
+    }
+
     requestAnimationFrame(draw);
   }
 
