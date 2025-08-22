@@ -153,14 +153,16 @@ function populate(data) {
   });
 
   const contact = document.getElementById('contact-content');
+  const phoneIcon = '☎️';
+  const emailIcon = '✉️';
   contact.innerHTML = `
-    <p>Phone: <a href="tel:${data.contact.phone}">${data.contact.phone}</a></p>
-    <p>Email: <a href="mailto:${data.contact.email}">${data.contact.email}</a></p>
+    <p>Phone: <a href="tel:${data.contact.phone}" class="contact-icon" aria-label="Phone">${phoneIcon}</a></p>
+    <p>Email: <a href="mailto:${data.contact.email}" class="contact-icon" aria-label="Email">${emailIcon}</a></p>
     <p>Location: ${data.contact.location}</p>
   `;
   data.contact.profiles.forEach(p => {
     const animal = profileAnimals[p.site] || '🔗';
-    contact.innerHTML += `<p>${p.site}: <a href="${p.url}" class="animal-link" target="_blank" rel="noopener" aria-label="${p.site}">${animal}</a></p>`;
+    contact.innerHTML += `<p>${p.site}: <a href="${p.url}" class="contact-icon" target="_blank" rel="noopener" aria-label="${p.site}">${animal}</a></p>`;
   });
 
   const skills = document.getElementById('skills-list');
