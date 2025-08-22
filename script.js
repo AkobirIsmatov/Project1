@@ -72,7 +72,12 @@ document.addEventListener('DOMContentLoaded', () => {
 function populate(data) {
   document.getElementById('name').textContent = data.name;
   const headlineEl = document.getElementById('headline');
-  typeWriter(`${data.headline}\n${data.summary}`, headlineEl);
+  const summaryEl = document.getElementById('summary');
+  typeWriter(data.headline, headlineEl, 0, () => {
+    headlineEl.classList.remove('tagline');
+    summaryEl.classList.add('tagline');
+    typeWriter(data.summary, summaryEl, 0, () => summaryEl.classList.remove('tagline'));
+  });
 
   const contact = document.getElementById('contact-content');
   contact.innerHTML = `
@@ -159,9 +164,11 @@ function titleCase(str) {
   return str.replace(/\w+/g, w => w[0].toUpperCase() + w.slice(1));
 }
 
-function typeWriter(text, el, i = 0) {
+function typeWriter(text, el, i = 0, done) {
   if (i < text.length) {
     el.textContent += text.charAt(i);
-    setTimeout(() => typeWriter(text, el, i + 1), 100);
+    setTimeout(() => typeWriter(text, el, i + 1, done), 100);
+  } else if (typeof done === 'function') {
+    done();
   }
 }
