@@ -264,7 +264,7 @@ function initMatrix(id) {
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
   const fontSize = 16;
-  const speed = 0.5;
+  const speed = 0.1;
   let columns = 0;
   let drops = [];
 
