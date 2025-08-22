@@ -170,6 +170,16 @@ function populate(data) {
     const div = document.createElement('div');
     div.classList.add('entry');
     div.innerHTML = `<h3><i class="fa-solid fa-graduation-cap"></i> ${item.degree}</h3><p>${item.institution} (${item.start_date} – ${item.end_date})</p>`;
+    div.innerHTML = `<h3>${item.degree}</h3><p>${item.institution} (${item.start_date} – ${item.end_date})</p><p>GPA: ${item.gpa}</p>`;
+    if (item.notes && item.notes.length) {
+      const ul = document.createElement('ul');
+      item.notes.forEach(n => {
+        const li = document.createElement('li');
+        li.textContent = n;
+        ul.appendChild(li);
+      });
+      div.appendChild(ul);
+    }
     edu.appendChild(div);
   });
 
@@ -194,6 +204,20 @@ function populate(data) {
       ul.appendChild(li);
     });
     projects.appendChild(ul);
+  });
+
+  const publications = document.getElementById('publications-list');
+  data.publications.forEach(pub => {
+    const li = document.createElement('li');
+    li.innerHTML = `<strong>${pub.title}</strong>, <em>${pub.venue}</em> (${pub.date})`;
+    publications.appendChild(li);
+  });
+
+  const certs = document.getElementById('certifications-list');
+  data.certifications_training.forEach(c => {
+    const li = document.createElement('li');
+    li.textContent = c;
+    certs.appendChild(li);
   });
 
   const achievements = document.getElementById('achievements-list');
