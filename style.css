@@ -116,6 +116,34 @@ body.dark .section:nth-of-type(odd) {
   animation: blink-cursor 0.8s steps(2, start) infinite;
 }
 
+#back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: var(--accent-color);
+  color: #fff;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#back-to-top.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#back-to-top:hover {
+  transform: scale(1.1);
+}
+
 @keyframes blink-cursor {
   from { border-right-color: var(--accent-color); }
   to { border-right-color: transparent; }
@@ -128,5 +156,11 @@ body.dark .section:nth-of-type(odd) {
   }
   .skill-list {
     columns: 1;
+  }
+  #back-to-top {
+    bottom: 1rem;
+    right: 1rem;
+    width: 2.5rem;
+    height: 2.5rem;
   }
 }
