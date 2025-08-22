@@ -312,7 +312,7 @@ function initCodeBackground() {
     function cycle() {
       const snippet = snippets[Math.floor(Math.random() * snippets.length)];
       bg.textContent = '';
-      bg.style.opacity = 0.05;
+      bg.style.opacity = 0.2;
       typeWriter(snippet, bg, 0, () => {
         setTimeout(() => {
           bg.style.opacity = 0;
