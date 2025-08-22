@@ -274,13 +274,15 @@ function initMatrix(id) {
   let columns = 0;
   let drops = [];
   let speeds = [];
+  const baseSpeed = 0.5;
+  const speedVariance = 1;
 
   function resize() {
     canvas.height = window.innerHeight;
     canvas.width = canvas.offsetWidth;
     columns = Math.floor(canvas.width / fontSize);
     drops = Array.from({ length: columns }, () => Math.random() * canvas.height / fontSize);
-    speeds = Array.from({ length: columns }, () => 1 + Math.random() * 2);
+    speeds = Array.from({ length: columns }, () => baseSpeed + Math.random() * speedVariance);
   }
 
   function draw() {
@@ -300,7 +302,7 @@ function initMatrix(id) {
       drops[i] += speeds[i];
       if (y > canvas.height && Math.random() > 0.975) {
         drops[i] = 0;
-        speeds[i] = 1 + Math.random() * 2;
+        speeds[i] = baseSpeed + Math.random() * speedVariance;
       }
     }
     requestAnimationFrame(draw);
