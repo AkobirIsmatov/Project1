@@ -279,8 +279,8 @@ function initMatrix(id) {
   let columns = 0;
   let drops = [];
   let speeds = [];
-  const baseSpeed = 0.5;
-  const speedVariance = 1;
+  const baseSpeed = 0.1;
+  const speedVariance = 0.1;
 
   function resize() {
     canvas.height = window.innerHeight;
