@@ -28,6 +28,15 @@ document.addEventListener('DOMContentLoaded', () => {
   sections.forEach(section => observer.observe(section));
 
   const navLinks = document.querySelectorAll('.nav-links a');
+  const navToggle = document.getElementById('nav-toggle');
+  const navLinksContainer = document.querySelector('.nav-links');
+  navToggle.addEventListener('click', () => {
+    navLinksContainer.classList.toggle('show');
+  });
+  navLinks.forEach(link =>
+    link.addEventListener('click', () => navLinksContainer.classList.remove('show'))
+  );
+
   const sectionObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       const id = entry.target.getAttribute('id');
