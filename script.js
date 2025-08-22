@@ -82,6 +82,9 @@ document.addEventListener('DOMContentLoaded', () => {
       sec.style.setProperty('--tiltY', '0deg');
     });
   });
+
+  initMatrix('matrix-left');
+  initMatrix('matrix-right');
 });
 
 function populate(data) {
@@ -186,4 +189,40 @@ function typeWriter(text, el, i = 0, done) {
   } else if (typeof done === 'function') {
     done();
   }
+}
+
+function initMatrix(id) {
+  const canvas = document.getElementById(id);
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const fontSize = 16;
+  let columns = 0;
+  let drops = [];
+
+  function resize() {
+    canvas.height = window.innerHeight;
+    canvas.width = canvas.offsetWidth;
+    columns = Math.floor(canvas.width / fontSize);
+    drops = Array(columns).fill(1);
+  }
+
+  function draw() {
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = '#0F0';
+    ctx.font = fontSize + 'px monospace';
+    for (let i = 0; i < drops.length; i++) {
+      const text = String.fromCharCode(0x30A0 + Math.random() * 96);
+      ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+      if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+        drops[i] = 0;
+      }
+      drops[i]++;
+    }
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize', resize);
+  resize();
+  draw();
 }
