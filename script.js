@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function populate(data) {
   document.getElementById('name').textContent = data.name;
   const headlineEl = document.getElementById('headline');
-  typeWriter(data.headline, headlineEl);
+  typeWriter(`${data.headline}\n${data.summary}`, headlineEl);
 
   const contact = document.getElementById('contact-content');
   contact.innerHTML = `
