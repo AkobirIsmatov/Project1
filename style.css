@@ -748,6 +748,9 @@ html, body {
   grid-template-columns: 1fr 2fr;
   gap: 2rem;
   align-items: start;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .sidebar,
@@ -755,6 +758,7 @@ html, body {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  min-width: 0;
 }
 
 .cv-container .section {
@@ -770,5 +774,6 @@ html, body {
 @media (max-width: 800px) {
   .cv-container {
     grid-template-columns: 1fr;
+    padding: 0 1rem;
   }
 }
