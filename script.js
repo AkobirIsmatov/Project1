@@ -132,6 +132,13 @@ document.addEventListener('DOMContentLoaded', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
+  const copyrightIcon = document.querySelector('.copyright-icon');
+  if (copyrightIcon) {
+    copyrightIcon.addEventListener('click', () => {
+      copyrightIcon.classList.toggle('active');
+    });
+  }
+
   document.addEventListener('mousemove', e => {
     const x = (e.clientX / window.innerWidth - 0.5) * 10;
     const y = (e.clientY / window.innerHeight - 0.5) * 10;
