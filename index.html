@@ -1,12 +1,125 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <script>
-      const htmlBytes = Uint8Array.from(atob('PCFET0NUWVBFIGh0bWw+CjxodG1sIGxhbmc9ImVuIj4KPGhlYWQ+CiAgPG1ldGEgY2hhcnNldD0iVVRGLTgiIC8+CiAgPG1ldGEgbmFtZT0idmlld3BvcnQiIGNvbnRlbnQ9IndpZHRoPWRldmljZS13aWR0aCwgaW5pdGlhbC1zY2FsZT0xLjAiIC8+CiAgPHRpdGxlPkFrb2JpciBJc21hdG92IC0gUG9ydGZvbGlvPC90aXRsZT4KICA8bGluayByZWw9InN0eWxlc2hlZXQiIGhyZWY9InN0eWxlLmNzcyIgLz4KICA8bGluayByZWw9Imljb24iIHR5cGU9ImltYWdlL3N2Zyt4bWwiIGhyZWY9ImFzc2V0cy9mYXZpY29uLnN2ZyIgLz4KICA8bGluayByZWw9InN0eWxlc2hlZXQiIGhyZWY9Imh0dHBzOi8vY2RuanMuY2xvdWRmbGFyZS5jb20vYWpheC9saWJzL2ZvbnQtYXdlc29tZS82LjUuMi9jc3MvYWxsLm1pbi5jc3MiIC8+CiAgPHNjcmlwdCBkZWZlciBzcmM9ImJsYWNraG9sZS5qcyI+PC9zY3JpcHQ+CiAgPHNjcmlwdCBkZWZlciBzcmM9InNjcmlwdC5qcyI+PC9zY3JpcHQ+CjwvaGVhZD4KPGJvZHk+CiAgPGRpdiBpZD0iaW50cm8tb3ZlcmxheSI+CiAgICA8ZGl2IGlkPSJibGFja2hvbGUiPgogICAgICA8ZGl2IGNsYXNzPSJjZW50ZXJIb3ZlciI+PHNwYW4+RU5URVI8L3NwYW4+PC9kaXY+CiAgICA8L2Rpdj4KICA8L2Rpdj4KICA8ZGl2IGlkPSJtYWluLWNvbnRlbnQiPgogIDxkaXYgaWQ9InByb2dyZXNzLWJhciI+PC9kaXY+CiAgPGNhbnZhcyBpZD0ibWF0cml4LWxlZnQiIGNsYXNzPSJtYXRyaXgtY2FudmFzIj48L2NhbnZhcz4KICA8Y2FudmFzIGlkPSJtYXRyaXgtcmlnaHQiIGNsYXNzPSJtYXRyaXgtY2FudmFzIj48L2NhbnZhcz4KICA8bmF2IGNsYXNzPSJuYXZiYXIiPgogICAgPGRpdiBjbGFzcz0ibG9nbyI+QUk8L2Rpdj4KICAgIDxidXR0b24gaWQ9Im5hdi10b2dnbGUiIGFyaWEtbGFiZWw9IlRvZ2dsZSBuYXZpZ2F0aW9uIiBhcmlhLWV4cGFuZGVkPSJmYWxzZSIgYXJpYS1jb250cm9scz0ibmF2LWxpbmtzIj7imLA8L2J1dHRvbj4KICAgIDx1bCBpZD0ibmF2LWxpbmtzIiBjbGFzcz0ibmF2LWxpbmtzIj4KICAgICAgPGxpPjxhIGhyZWY9IiNhYm91dCI+QWJvdXQ8L2E+PC9saT4KICAgICAgPGxpPjxhIGhyZWY9IiNlZHVjYXRpb24iPkVkdWNhdGlvbjwvYT48L2xpPgogICAgICA8bGk+PGEgaHJlZj0iI2V4cGVyaWVuY2UiPkV4cGVyaWVuY2U8L2E+PC9saT4KICAgICAgPGxpPjxhIGhyZWY9IiNza2lsbHMiPlNraWxsczwvYT48L2xpPgogICAgICA8bGk+PGEgaHJlZj0iI3Byb2plY3RzIj5Qcm9qZWN0czwvYT48L2xpPgogICAgICA8bGk+PGEgaHJlZj0iI3B1YmxpY2F0aW9ucyI+UHVibGljYXRpb25zPC9hPjwvbGk+CiAgICAgIDxsaT48YSBocmVmPSIjY2VydGlmaWNhdGlvbnMiPkNlcnRpZmljYXRpb25zPC9hPjwvbGk+CiAgICAgIDxsaT48YSBocmVmPSIjYWNoaWV2ZW1lbnRzIj5BY2hpZXZlbWVudHM8L2E+PC9saT4KICAgICAgPGxpPjxhIGhyZWY9IiNjb250YWN0Ij5Db250YWN0PC9hPjwvbGk+CiAgICAgIDxsaT48YSBocmVmPSJhc3NldHMvQWtvYmlyX0lzbWF0b3ZfQ1YucGRmIiBkb3dubG9hZD5Eb3dubG9hZCBDVjwvYT48L2xpPgogICAgPC91bD4KICA8L25hdj4KCiAgPGZpZWxkc2V0IGNsYXNzPSJzd2l0Y2hlciI+CiAgICA8bGVnZW5kIGNsYXNzPSJzd2l0Y2hlcl9fbGVnZW5kIj5UaGVtZTwvbGVnZW5kPgogICAgPGxhYmVsIGNsYXNzPSJzd2l0Y2hlcl9fb3B0aW9uIj4KICAgICAgPGlucHV0IGNsYXNzPSJzd2l0Y2hlcl9faW5wdXQiIHR5cGU9InJhZGlvIiBuYW1lPSJ0aGVtZSIgdmFsdWU9ImxpZ2h0IiBjLW9wdGlvbj0iMSIgLz4KICAgICAgPGkgY2xhc3M9ImZhLXNvbGlkIGZhLXN1biBzd2l0Y2hlcl9faWNvbiIgYXJpYS1oaWRkZW49InRydWUiPjwvaT4KICAgIDwvbGFiZWw+CiAgICA8bGFiZWwgY2xhc3M9InN3aXRjaGVyX19vcHRpb24iPgogICAgICA8aW5wdXQgY2xhc3M9InN3aXRjaGVyX19pbnB1dCIgdHlwZT0icmFkaW8iIG5hbWU9InRoZW1lIiB2YWx1ZT0iZGFyayIgYy1vcHRpb249IjIiIGNoZWNrZWQgLz4KICAgICAgPGkgY2xhc3M9ImZhLXNvbGlkIGZhLW1vb24gc3dpdGNoZXJfX2ljb24iIGFyaWEtaGlkZGVuPSJ0cnVlIj48L2k+CiAgICA8L2xhYmVsPgogICAgPGxhYmVsIGNsYXNzPSJzd2l0Y2hlcl9fb3B0aW9uIj4KICAgICAgPGlucHV0IGNsYXNzPSJzd2l0Y2hlcl9faW5wdXQiIHR5cGU9InJhZGlvIiBuYW1lPSJ0aGVtZSIgdmFsdWU9ImRpbSIgYy1vcHRpb249IjMiIC8+CiAgICAgIDxpIGNsYXNzPSJmYS1zb2xpZCBmYS1jbG91ZC1tb29uIHN3aXRjaGVyX19pY29uIiBhcmlhLWhpZGRlbj0idHJ1ZSI+PC9pPgogICAgPC9sYWJlbD4KICA8L2ZpZWxkc2V0PgoKICA8aGVhZGVyIGlkPSJhYm91dCIgY2xhc3M9InNlY3Rpb24iPgogICAgPGltZyBzcmM9ImFrby5qcGciIGFsdD0iQWtvYmlyIElzbWF0b3YiIGNsYXNzPSJwcm9maWxlLXBpYyIgLz4KICAgIDxoMSBpZD0ibmFtZSI+PC9oMT4KICAgIDxwIGNsYXNzPSJ0YWdsaW5lIiBpZD0iaGVhZGxpbmUiPjwvcD4KICAgIDxwIGlkPSJzdW1tYXJ5Ij48L3A+CiAgPC9oZWFkZXI+CgogIDxzZWN0aW9uIGlkPSJlZHVjYXRpb24iIGNsYXNzPSJzZWN0aW9uIj4KICAgIDxoMj5FZHVjYXRpb248L2gyPgogICAgPGRpdiBpZD0iZWR1Y2F0aW9uLWNvbnRlbnQiIGNsYXNzPSJ0aW1lbGluZSI+PC9kaXY+CiAgPC9zZWN0aW9uPgoKICA8c2VjdGlvbiBpZD0iZXhwZXJpZW5jZSIgY2xhc3M9InNlY3Rpb24iPgogICAgPGgyPldvcmsgRXhwZXJpZW5jZTwvaDI+CiAgICA8ZGl2IGlkPSJleHBlcmllbmNlLWNvbnRlbnQiPjwvZGl2PgogIDwvc2VjdGlvbj4KCiAgPHNlY3Rpb24gaWQ9InNraWxscyIgY2xhc3M9InNlY3Rpb24iPgogICAgPGgyPlNraWxsczwvaDI+CiAgICA8dWwgaWQ9InNraWxscy1saXN0IiBjbGFzcz0ic2tpbGwtbGlzdCI+PC91bD4KICAgIDxoMz5MYW5ndWFnZXM8L2gzPgogICAgPHVsIGlkPSJsYW5ndWFnZXMtbGlzdCIgY2xhc3M9InNraWxsLWxpc3QiPjwvdWw+CiAgPC9zZWN0aW9uPgoKICA8c2VjdGlvbiBpZD0icHJvamVjdHMiIGNsYXNzPSJzZWN0aW9uIj4KICAgIDxoMj5Qcm9qZWN0czwvaDI+CiAgICA8ZGl2IGlkPSJwcm9qZWN0cy1jb250ZW50Ij48L2Rpdj4KICA8L3NlY3Rpb24+CgogIDxzZWN0aW9uIGlkPSJwdWJsaWNhdGlvbnMiIGNsYXNzPSJzZWN0aW9uIj4KICAgIDxoMj5QdWJsaWNhdGlvbnM8L2gyPgogICAgPHVsIGlkPSJwdWJsaWNhdGlvbnMtbGlzdCI+PC91bD4KICA8L3NlY3Rpb24+CgogIDxzZWN0aW9uIGlkPSJjZXJ0aWZpY2F0aW9ucyIgY2xhc3M9InNlY3Rpb24iPgogICAgPGgyPkNlcnRpZmljYXRpb25zICZhbXA7IFRyYWluaW5nPC9oMj4KICAgIDx1bCBpZD0iY2VydGlmaWNhdGlvbnMtbGlzdCI+PC91bD4KICA8L3NlY3Rpb24+CgogIDxzZWN0aW9uIGlkPSJhY2hpZXZlbWVudHMiIGNsYXNzPSJzZWN0aW9uIj4KICAgIDxoMj5BY2hpZXZlbWVudHM8L2gyPgogICAgPHVsIGlkPSJhY2hpZXZlbWVudHMtbGlzdCI+PC91bD4KICA8L3NlY3Rpb24+CgogICAgPHNlY3Rpb24gaWQ9ImNvbnRhY3QiIGNsYXNzPSJzZWN0aW9uIj4KICAgICAgPGRpdiBjbGFzcz0iY29udGFjdC1jYXJkIj4KICAgICAgICA8YnV0dG9uIGlkPSJjb250YWN0LXRvZ2dsZSIgY2xhc3M9ImNvbnRhY3QtdG9nZ2xlIiBhcmlhLWV4cGFuZGVkPSJmYWxzZSI+CiAgICAgICAgICA8c3Bhbj5HZXQgaW4gdG91Y2g8L3NwYW4+CiAgICAgICAgICA8aSBjbGFzcz0iZmEtc29saWQgZmEtY2hldnJvbi1kb3duIHRvZ2dsZS1pY29uIiBhcmlhLWhpZGRlbj0idHJ1ZSI+PC9pPgogICAgICAgIDwvYnV0dG9uPgogICAgICAgIDxkaXYgaWQ9ImNvbnRhY3QtY29udGVudCIgY2xhc3M9ImNvbnRhY3QtY29udGVudCI+PC9kaXY+CiAgICAgIDwvZGl2PgogICAgPC9zZWN0aW9uPgoKICAgIDxmb290ZXIgY2xhc3M9ImZvb3RlciI+CiAgICAgIDxkaXYgY2xhc3M9ImNvcHlyaWdodC1pY29uIiB0YWJpbmRleD0iMCIgYXJpYS1sYWJlbD0iQ29weXJpZ2h0Ij4KICAgICAgICA8aSBjbGFzcz0iZmEtc29saWQgZmEtY29tcHV0ZXIiPjwvaT4KICAgICAgICA8c3BhbiBjbGFzcz0iY29weXJpZ2h0LXRvb2x0aXAiPiZjb3B5OyA8c3BhbiBpZD0iY3VycmVudC15ZWFyIj48L3NwYW4+IEFrb2JpciBJc21hdG92LiBBbGwgcmlnaHRzIHJlc2VydmVkLjwvc3Bhbj4KICAgICAgPC9kaXY+CiAgICA8L2Zvb3Rlcj4KICA8YnV0dG9uIGlkPSJiYWNrLXRvLXRvcCIgYXJpYS1sYWJlbD0iQmFjayB0byB0b3AiPuKGkTwvYnV0dG9uPgo8L2Rpdj4KPC9ib2R5Pgo8L2h0bWw+Cg=='), c => c.charCodeAt(0));
-      const html = new TextDecoder().decode(htmlBytes);
-      document.write(html);
-    </script>
-  </head>
-  <body></body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Akobir Ismatov - Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <script defer src="blackhole.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div id="intro-overlay">
+    <div id="blackhole">
+      <div class="centerHover"><span>ENTER</span></div>
+    </div>
+  </div>
+  <div id="main-content">
+  <div id="progress-bar"></div>
+  <canvas id="matrix-left" class="matrix-canvas"></canvas>
+  <canvas id="matrix-right" class="matrix-canvas"></canvas>
+  <nav class="navbar">
+    <div class="logo">AI</div>
+    <button id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">☰</button>
+    <ul id="nav-links" class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="assets/Akobir_Ismatov_CV.pdf" download>Download CV</a></li>
+    </ul>
+  </nav>
+
+  <fieldset class="switcher">
+    <legend class="switcher__legend">Theme</legend>
+    <label class="switcher__option">
+      <input class="switcher__input" type="radio" name="theme" value="light" c-option="1" />
+      <i class="fa-solid fa-sun switcher__icon" aria-hidden="true"></i>
+    </label>
+    <label class="switcher__option">
+      <input class="switcher__input" type="radio" name="theme" value="dark" c-option="2" checked />
+      <i class="fa-solid fa-moon switcher__icon" aria-hidden="true"></i>
+    </label>
+    <label class="switcher__option">
+      <input class="switcher__input" type="radio" name="theme" value="dim" c-option="3" />
+      <i class="fa-solid fa-cloud-moon switcher__icon" aria-hidden="true"></i>
+    </label>
+  </fieldset>
+
+  <header id="about" class="section">
+    <img src="ako.jpg" alt="Akobir Ismatov" class="profile-pic" />
+    <h1 id="name"></h1>
+    <p class="tagline" id="headline"></p>
+    <p id="summary"></p>
+  </header>
+
+    <div class="cv-container">
+      <aside class="sidebar">
+        <section id="contact" class="section">
+          <div class="contact-card">
+            <button id="contact-toggle" class="contact-toggle" aria-expanded="false">
+              <span>Get in touch</span>
+              <i class="fa-solid fa-chevron-down toggle-icon" aria-hidden="true"></i>
+            </button>
+            <div id="contact-content" class="contact-content"></div>
+          </div>
+        </section>
+
+        <section id="skills" class="section">
+          <h2>Skills</h2>
+          <ul id="skills-list" class="skill-list"></ul>
+          <h3>Languages</h3>
+          <ul id="languages-list" class="skill-list"></ul>
+        </section>
+      </aside>
+
+      <main class="content">
+        <section id="experience" class="section">
+          <h2>Work Experience</h2>
+          <div id="experience-content"></div>
+        </section>
+
+        <section id="education" class="section">
+          <h2>Education</h2>
+          <div id="education-content" class="timeline"></div>
+        </section>
+
+        <section id="projects" class="section">
+          <h2>Projects</h2>
+          <div id="projects-content"></div>
+        </section>
+
+        <section id="publications" class="section">
+          <h2>Publications</h2>
+          <ul id="publications-list"></ul>
+        </section>
+
+        <section id="certifications" class="section">
+          <h2>Certifications &amp; Training</h2>
+          <ul id="certifications-list"></ul>
+        </section>
+
+        <section id="achievements" class="section">
+          <h2>Achievements</h2>
+          <ul id="achievements-list"></ul>
+        </section>
+      </main>
+    </div>
+
+    <footer class="footer">
+      <div class="copyright-icon" tabindex="0" aria-label="Copyright">
+        <i class="fa-solid fa-computer"></i>
+        <span class="copyright-tooltip">&copy; <span id="current-year"></span> Akobir Ismatov. All rights reserved.</span>
+      </div>
+    </footer>
+  <button id="back-to-top" aria-label="Back to top">↑</button>
+</div>
+</body>
 </html>
