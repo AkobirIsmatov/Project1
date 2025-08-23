@@ -773,7 +773,11 @@ html, body {
 
 @media (max-width: 800px) {
   .cv-container {
-    grid-template-columns: 1fr;
+    display: block;
     padding: 0 1rem;
+  }
+
+  .matrix-canvas {
+    display: none;
   }
 }
