@@ -187,6 +187,8 @@ document.addEventListener('DOMContentLoaded', () => {
             main.classList.add('show');
             overlay.remove();
             cancelAnimation();
+            initMatrix('matrix-left');
+            initMatrix('matrix-right');
         }, 1000);
     });
 });
