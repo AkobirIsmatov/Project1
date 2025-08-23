@@ -7,9 +7,16 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <script defer src="blackhole.js"></script>
   <script defer src="script.js"></script>
 </head>
 <body>
+  <div id="intro-overlay">
+    <div id="blackhole">
+      <div class="centerHover"><span>ENTER</span></div>
+    </div>
+  </div>
+  <div id="main-content">
   <div id="progress-bar"></div>
   <canvas id="matrix-left" class="matrix-canvas"></canvas>
   <canvas id="matrix-right" class="matrix-canvas"></canvas>
@@ -107,5 +114,6 @@
       </div>
     </footer>
   <button id="back-to-top" aria-label="Back to top">↑</button>
+</div>
 </body>
 </html>
