@@ -67,6 +67,31 @@ function getRoleIcon(title) {
   return 'fa-solid fa-briefcase';
 }
 
+function sanitizeUrl(url) {
+  if (typeof url !== 'string') return '';
+  const trimmed = url.trim();
+  if (/^https?:\/\//i.test(trimmed)) {
+    try {
+      return encodeURI(trimmed);
+    } catch {
+      return '';
+    }
+  }
+  return '';
+}
+
+function sanitizeEmail(email) {
+  if (typeof email !== 'string') return '';
+  const trimmed = email.trim();
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailPattern.test(trimmed) ? trimmed : '';
+}
+
+function sanitizePhone(phone) {
+  if (typeof phone !== 'string') return '';
+  return phone.replace(/[^+\d]/g, '');
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const switcher = document.querySelector('.switcher');
   if (switcher) {
@@ -223,7 +248,8 @@ function populate(data) {
 
   const phoneP = document.createElement('p');
   const phoneLink = document.createElement('a');
-  phoneLink.href = `tel:${data.contact.phone}`;
+  const safePhone = sanitizePhone(data.contact.phone);
+  phoneLink.href = `tel:${safePhone}`;
   phoneLink.className = 'contact-link';
   phoneLink.setAttribute('aria-label', 'Phone');
   const phoneIcon = document.createElement('i');
@@ -233,7 +259,7 @@ function populate(data) {
   phoneP.appendChild(phoneLink);
   const phoneBtn = document.createElement('button');
   phoneBtn.className = 'copy-btn';
-  phoneBtn.setAttribute('data-copy', data.contact.phone);
+  phoneBtn.setAttribute('data-copy', safePhone);
   phoneBtn.setAttribute('aria-label', 'Copy phone');
   const phoneBtnIcon = document.createElement('i');
   phoneBtnIcon.className = 'fa-solid fa-copy';
@@ -243,17 +269,18 @@ function populate(data) {
 
   const emailP = document.createElement('p');
   const emailLink = document.createElement('a');
-  emailLink.href = `mailto:${data.contact.email}`;
+  const safeEmail = sanitizeEmail(data.contact.email);
+  emailLink.href = `mailto:${safeEmail}`;
   emailLink.className = 'contact-link';
   emailLink.setAttribute('aria-label', 'Email');
   const emailIcon = document.createElement('i');
   emailIcon.className = 'fa-solid fa-envelope';
   emailLink.appendChild(emailIcon);
-  emailLink.appendChild(document.createTextNode(data.contact.email));
+  emailLink.appendChild(document.createTextNode(safeEmail));
   emailP.appendChild(emailLink);
   const emailBtn = document.createElement('button');
   emailBtn.className = 'copy-btn';
-  emailBtn.setAttribute('data-copy', data.contact.email);
+  emailBtn.setAttribute('data-copy', safeEmail);
   emailBtn.setAttribute('aria-label', 'Copy email');
   const emailBtnIcon = document.createElement('i');
   emailBtnIcon.className = 'fa-solid fa-copy';
@@ -276,9 +303,11 @@ function populate(data) {
   contact.appendChild(locP);
 
   data.contact.profiles.forEach(p => {
+    const safeUrl = sanitizeUrl(p.url);
+    if (!safeUrl) return;
     const pEl = document.createElement('p');
     const a = document.createElement('a');
-    a.href = p.url;
+    a.href = safeUrl;
     a.className = 'contact-link';
     a.target = '_blank';
     a.rel = 'noopener';
