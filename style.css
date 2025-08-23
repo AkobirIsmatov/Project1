@@ -249,6 +249,33 @@ html, body {
   white-space: pre-wrap;
 }
 
+/* Contact dropdown styles */
+.contact-toggle {
+  background: none;
+  border: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
+
+.contact-toggle::after {
+  content: '▼';
+  margin-left: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.contact-toggle.open::after {
+  transform: rotate(180deg);
+}
+
+.contact-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
 #back-to-top {
   position: fixed;
   bottom: 2rem;
