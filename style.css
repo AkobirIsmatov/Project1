@@ -303,6 +303,7 @@ html, body {
   position: fixed;
   bottom: 2rem;
   right: 2rem;
+  z-index: 1000;
   width: 3rem;
   height: 3rem;
   display: flex;
@@ -325,6 +326,12 @@ html, body {
 
 #back-to-top:hover {
   transform: scale(1.1);
+}
+
+@media (min-width: 901px) {
+  #back-to-top {
+    right: calc(250px + 2rem);
+  }
 }
 
 @media (max-width: 900px) {
