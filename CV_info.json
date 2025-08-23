@@ -1,1 +1,168 @@
-{"name":"Akobir Ismatov","headline":"AI Software and Cybersecurity Engineer","summary":"Has a strong foundation in Artificial Intelligence, Network/Cyber Security, and Big Data. Earned a Master’s degree in Network and Security at Chungnam National University, specializing in broadcasting in MANETs. Experienced in Cyber Security, deep learning, machine learning, and IoT security, with hands-on work in AI-driven optimization for network protocols. As an ENTP-A personality, thrives in fast-paced environments, enjoys tackling complex problems, and excels in strategic decision-making. Published multiple research papers in IEEE, Electronics, MDPI, and international conferences.","contact":{"phone":"+52 81 1154 9797","email":"cv.exit312@passmail.net","location":"Monterrey, México","profiles":[{"site":"GitHub","url":"https://github.com/ATrublie"},{"site":"LinkedIn","url":"https://www.linkedin.com/in/akobir-ismatov-ba9055195/"},{"site":"TryHackMe","url":"https://tryhackme.com/p/YakobIA"}]},"skills":["Python","Bash","Automation","Scripting","SIEM","RMM","IDS/IPS","EDR/XDR","Computer Vision","R&D","Artificial Intelligence","LLMs","Deep Learning","Machine Learning","Network Security","Cybersecurity","Data Analytics","Blockchain","Crypto"],"languages":[{"language":"English","proficiency":"Fluent"},{"language":"Russian","proficiency":"Fluent"},{"language":"Uzbek","proficiency":"Fluent"},{"language":"Tajik","proficiency":"Fluent"},{"language":"Korean","proficiency":"Basic"}],"certifications_training":["Jr. Penetration Tester","SOC Level II","Web Fundamentals","Offensive Pen Testing","Cyber Security 101","200+ hours on TryHackMe (top 4% user)","Microsoft Defender for Endpoint Training","Many more can be found on the Linkedin profile"],"work_experience":[{"company":"Mobility Hub","roles":[{"title":"Cybersecurity Specialist (Offensive & Defensive)","start_date":"2024-06","end_date":"Present","highlights":["Implemented current SIEM solution for the company, and further integrating it with 3rd party systems such as Malware analysis, Suricata/Snort as IDS/IPS, XDR with active scripts & AV solutions such as VT, implemented open-source AI models such as DeepseekR1, Gwen, oss-gpt for CTI/Data enrichment and more. (Used Wazuh, Splunk).","Conducted full-scope penetration testing on company assets including web applications, networks, IoT devices, and internal infrastructure (using manual and automated tools such as Nessus and Tenable).","Implemented current in use RMM solution for patching, vulnerability management, system hardening, and remote management (Action1 and NinjaOne).","IT hygiene and asset inventory management; monitored and removed data leaks on web/dark web, forums, and other data pawn locations.","Lead the development of company-wide cybersecurity awareness materials, guides, and training."]},{"title":"Senior Software Engineer","start_date":"2024-06","end_date":"2025-03","highlights":["Develop, deploy, and maintain applications implementing computer vision systems and data collection and analysis (Personalized Advertisement system, Facial recognition/tracking based monitoring system, Customer history based analytics)."]}]},{"company":"Chungnam National University","title":"Network and Security Researcher (R&D)","start_date":"2023-03","end_date":"Present","highlights":["Worked on a Differential Authentication Scheme for electric vehicle (EV) charging systems using LightGBM, achieving ~41% reduction in TLS handshake latency.","Developed a Resilient Routing Protocol for mobile ad hoc networks (MANETs) combining unsupervised learning and deep reinforcement learning.","Published and co-published 7+ peer-reviewed papers in top-tier journals (IEEE Access, Electronics, MDPI, Springer, JICCE) and presented."]},{"company":"HancomWith","title":"Forensics Analyst Intern","start_date":"2022-09","end_date":"2023-01","highlights":["Using in-house software extracted/restored forensics data from mobile devices based on iOS and Android.","Developed scripts and crawlers for data cleaning/sorting and extraction from mobile/drone devices.","Provided trainings and hands-on labs to customers."]},{"company":"Woosong University","title":"Lab Assistant","start_date":"2020-08","end_date":"2022-02","highlights":["Assisted with supply control and tech equipment inventory management.","Calibrated PCs, drones, and VR equipment and performed preventive maintenance.","Provided educational seminars, technical training, and drone and VR showcases to visitors."]}],"education":[{"degree":"Master of Science, Network and Security","institution":"Chungnam National University, Daejeon, South Korea","start_date":"2023","end_date":"2025","gpa":"4.0/4.5","notes":["Full scholarship and stipend for research"]},{"degree":"Bachelor of Science, Artificial Intelligence and Big Data","institution":"Woosong University, Daejeon, South Korea","start_date":"2019","end_date":"2023","gpa":"4.22/4.5","notes":["Scholarship","Award from the Technology department and Dean (for exemplary performance)"]},{"degree":"Computer Engineer Degree","institution":"Tashkent Vocational College of Radio-engineering, Uzbekistan","start_date":"2015","end_date":"2018","gpa":"5/5","notes":["Student president"]}],"projects":{"artificial_intelligence":["Facial recognition data management using blockchain (2020)","Day and Night Classification / Object Recognition (2021)","Drug detection/cancer classification projects (2022)","Facial recognition for advertisement (2024)"],"NLP":["Chapter-based summarization","Url link text summarization","Keyword extraction (2022)"],"web_database":["Woosong University Online Database with PHP and MySQL (2020)","World Universities for master’s degree Programs Website with HTML and CSS (2020)","Stock Manager with Python (2020)","American sign language translator with Deep learning (2021)"],"blockchain":["Decentralized trading platform (2022)","NFT and Crypto minting/mining farm projects (2022)"]},"publications":[{"title":"Fuzzy Logic Based Broadcasting Scheme for Mobile Ad Hoc Network","venue":"ITNAC, IEEE","date":"2024-11"},{"title":"A New Broadcasting Scheme Based on Reinforcement Learning-Driven Adaptive Fuzzy Logic in Mobile Ad Hoc Networks","venue":"AINA, Springer","date":"2025-01"},{"title":"IoT-Enhanced Transport and Monitoring of Medicine Using Sensors, MQTT, and Secure Short Message Service","venue":"IEEE Access","date":"2024-01"},{"title":"Content Caching Algorithms in Drone-aided Ad Hoc Networks","venue":"Computers, Materials & Continua (SCIE)","date":"2024-12"},{"title":"A Resilient Routing Protocol to Reduce Update Cost by Unsupervised Learning and Deep Reinforcement Learning in MANETs","venue":"Electronics (MDPI)","date":"2025-01"},{"title":"Differential Authentication Scheme for Electric Charging System through Light Gradient Boosting Machine","venue":"Journal of Information and Communication Convergence Engineering (SCOPUS)","date":"2024-09"},{"title":"New Tree Routing Protocol with Adaptive Metrics Based on Hop Count","venue":"Journal of Information and Communication Convergence Engineering (SCOPUS)","date":"2024-09"},{"title":"Facial Recognition Data Management in Blockchain","venue":"Chapter in 'Blockchain Technology for IoT Applications'","date":"2021-03"},{"title":"Night Vision, Day & Night Prediction with Object Recognition (NVDANOR) Model","venue":"IHCI Conference","date":"2021-12"}],"achievements":["Certificate of Appreciation for contribution to the development of Woosong University's programs (2020)","Top graduate, class of 2023","Research trip to Japan with funding provided by the Korean Government","Received IHCI-2021 travel scholarship fund providing USA trip to IHCI conference"]}
+{
+"name": "Akobir Ismatov",
+"headline": "AI Software and Cybersecurity Engineer",
+"summary": "Has a strong foundation in Artificial Intelligence, Network/Cyber Security, and Big Data. Earned a Master’s degree in Network and Security at Chungnam National University, specializing in broadcasting in MANETs. Experienced in Cyber Security, deep learning, machine learning, and IoT security, with hands-on work in AI-driven optimization for network protocols. As an ENTP-A personality, thrives in fast-paced environments, enjoys tackling complex problems, and excels in strategic decision-making. Published multiple research papers in IEEE, Electronics, MDPI, and international conferences.",
+"contact": {
+"phone": "+52 81 1154 9797",
+"email": "cv.exit312@passmail.net",
+"location": "Monterrey, México",
+"profiles": [
+{"site": "GitHub", "url": "https://github.com/ATrublie"},
+{"site": "LinkedIn", "url": "https://www.linkedin.com/in/akobir-ismatov-ba9055195/"},
+{"site": "TryHackMe", "url": "https://tryhackme.com/p/YakobIA"}
+]
+},
+"skills": [
+"Python", "Bash", "Automation", "Scripting",
+"SIEM", "RMM", "IDS/IPS", "EDR/XDR",
+"Computer Vision", "R&D",
+"Artificial Intelligence", "LLMs",
+"Deep Learning", "Machine Learning",
+"Network Security", "Cybersecurity",
+"Data Analytics",
+"Blockchain", "Crypto"
+],
+"languages": [
+{"language": "English", "proficiency": "Fluent"},
+{"language": "Russian", "proficiency": "Fluent"},
+{"language": "Uzbek", "proficiency": "Fluent"},
+{"language": "Tajik", "proficiency": "Fluent"},
+{"language": "Korean", "proficiency": "Basic"}
+],
+"certifications_training": [
+"Jr. Penetration Tester",
+"SOC Level II",
+"Web Fundamentals",
+"Offensive Pen Testing",
+"Cyber Security 101",
+"200+ hours on TryHackMe (top 4% user)",
+"Microsoft Defender for Endpoint Training",
+"Many more can be found on the Linkedin profile"
+],
+"work_experience": [
+{
+"company": "Mobility Hub",
+"roles": [
+{
+"title": "Cybersecurity Specialist (Offensive & Defensive)",
+"start_date": "2024-06",
+"end_date": "Present",
+"highlights": [
+"Implemented current SIEM solution for the company, and further integrating it with 3rd party systems such as Malware analysis, Suricata/Snort as IDS/IPS, XDR with active scripts & AV solutions such as VT, implemented open-source AI models such as DeepseekR1, Gwen, oss-gpt for CTI/Data enrichment and more. (Used Wazuh, Splunk).",
+"Conducted full-scope penetration testing on company assets including web applications, networks, IoT devices, and internal infrastructure (using manual and automated tools such as Nessus and Tenable).",
+"Implemented current in use RMM solution for patching, vulnerability management, system hardening, and remote management (Action1 and NinjaOne).",
+"IT hygiene and asset inventory management; monitored and removed data leaks on web/dark web, forums, and other data pawn locations.",
+"Lead the development of company-wide cybersecurity awareness materials, guides, and training."
+]
+},
+{
+"title": "Senior Software Engineer",
+"start_date": "2024-06",
+"end_date": "2025-03",
+"highlights": [
+"Develop, deploy, and maintain applications implementing computer vision systems and data collection and analysis (Personalized Advertisement system, Facial recognition/tracking based monitoring system, Customer history based analytics)."
+]
+}
+]
+},
+{
+"company": "Chungnam National University",
+"title": "Network and Security Researcher (R&D)",
+"start_date": "2023-03",
+"end_date": "Present",
+"highlights": [
+"Worked on a Differential Authentication Scheme for electric vehicle (EV) charging systems using LightGBM, achieving ~41% reduction in TLS handshake latency.",
+"Developed a Resilient Routing Protocol for mobile ad hoc networks (MANETs) combining unsupervised learning and deep reinforcement learning.",
+"Published and co-published 7+ peer-reviewed papers in top-tier journals (IEEE Access, Electronics, MDPI, Springer, JICCE) and presented."
+]
+},
+{
+"company": "HancomWith",
+"title": "Forensics Analyst Intern",
+"start_date": "2022-09",
+"end_date": "2023-01",
+"highlights": [
+"Using in-house software extracted/restored forensics data from mobile devices based on iOS and Android.",
+"Developed scripts and crawlers for data cleaning/sorting and extraction from mobile/drone devices.",
+"Provided trainings and hands-on labs to customers."
+]
+},
+{
+"company": "Woosong University",
+"title": "Lab Assistant",
+"start_date": "2020-08",
+"end_date": "2022-02",
+"highlights": [
+"Assisted with supply control and tech equipment inventory management.",
+"Calibrated PCs, drones, and VR equipment and performed preventive maintenance.",
+"Provided educational seminars, technical training, and drone and VR showcases to visitors."
+]
+}
+],
+"education": [
+{
+"degree": "Master of Science, Network and Security",
+"institution": "Chungnam National University, Daejeon, South Korea",
+"start_date": "2023",
+"end_date": "2025",
+"gpa": "4.0/4.5",
+"notes": ["Full scholarship and stipend for research"]
+},
+{
+"degree": "Bachelor of Science, Artificial Intelligence and Big Data",
+"institution": "Woosong University, Daejeon, South Korea",
+"start_date": "2019",
+"end_date": "2023",
+"gpa": "4.22/4.5",
+"notes": ["Scholarship", "Award from the Technology department and Dean (for exemplary performance)"]
+},
+{
+"degree": "Computer Engineer Degree",
+"institution": "Tashkent Vocational College of Radio-engineering, Uzbekistan",
+"start_date": "2015",
+"end_date": "2018",
+"gpa": "5/5",
+"notes": ["Student president"]
+}
+],
+"projects": {
+"artificial_intelligence": [
+"Facial recognition data management using blockchain (2020)",
+"Day and Night Classification / Object Recognition (2021)",
+"Drug detection/cancer classification projects (2022)",
+"Facial recognition for advertisement (2024)"
+],
+"NLP": [
+"Chapter-based summarization",
+"Url link text summarization",
+"Keyword extraction (2022)"
+],
+"web_database": [
+"Woosong University Online Database with PHP and MySQL (2020)",
+"World Universities for master’s degree Programs Website with HTML and CSS (2020)",
+"Stock Manager with Python (2020)",
+"American sign language translator with Deep learning (2021)"
+],
+"blockchain": [
+"Decentralized trading platform (2022)",
+"NFT and Crypto minting/mining farm projects (2022)"
+]
+},
+"publications": [
+{"title": "Fuzzy Logic Based Broadcasting Scheme for Mobile Ad Hoc Network", "venue": "ITNAC, IEEE", "date": "2024-11"},
+{"title": "A New Broadcasting Scheme Based on Reinforcement Learning-Driven Adaptive Fuzzy Logic in Mobile Ad Hoc Networks", "venue": "AINA, Springer", "date": "2025-01"},
+{"title": "IoT-Enhanced Transport and Monitoring of Medicine Using Sensors, MQTT, and Secure Short Message Service", "venue": "IEEE Access", "date": "2024-01"},
+{"title": "Content Caching Algorithms in Drone-aided Ad Hoc Networks", "venue": "Computers, Materials & Continua (SCIE)", "date": "2024-12"},
+{"title": "A Resilient Routing Protocol to Reduce Update Cost by Unsupervised Learning and Deep Reinforcement Learning in MANETs", "venue": "Electronics (MDPI)", "date": "2025-01"},
+{"title": "Differential Authentication Scheme for Electric Charging System through Light Gradient Boosting Machine", "venue": "Journal of Information and Communication Convergence Engineering (SCOPUS)", "date": "2024-09"},
+{"title": "New Tree Routing Protocol with Adaptive Metrics Based on Hop Count", "venue": "Journal of Information and Communication Convergence Engineering (SCOPUS)", "date": "2024-09"},
+{"title": "Facial Recognition Data Management in Blockchain", "venue": "Chapter in 'Blockchain Technology for IoT Applications'", "date": "2021-03"},
+{"title": "Night Vision, Day & Night Prediction with Object Recognition (NVDANOR) Model", "venue": "IHCI Conference", "date": "2021-12"}
+],
+"achievements": [
+"Certificate of Appreciation for contribution to the development of Woosong University's programs (2020)",
+"Top graduate, class of 2023",
+"Research trip to Japan with funding provided by the Korean Government",
+"Received IHCI-2021 travel scholarship fund providing USA trip to IHCI conference"
+]
+}
