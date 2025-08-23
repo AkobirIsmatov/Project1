@@ -99,11 +99,11 @@ html, body {
   position: fixed;
   z-index: 1100;
   top: 20px;
-  left: 50%;
-  right: auto;
+  right: 20px;
+  left: auto;
   margin: 0;
-  transform: translateX(-50%) scale(0.6);
-  transform-origin: top center;
+  transform: scale(0.6);
+  transform-origin: top right;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -286,8 +286,9 @@ html, body {
 .navbar {
   position: sticky;
   top: 4px;
+  width: 100%;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   gap: 1rem;
   padding: 0.5rem 1rem;
@@ -295,18 +296,32 @@ html, body {
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   z-index: 1000;
 }
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-  margin: 0;
-  padding: 0;
-}
 
 .logo {
   font-weight: bold;
   color: var(--accent-color);
+  position: absolute;
+  left: 1rem;
 }
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0 auto;
+  padding: 0;
+}
+
+#nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  position: absolute;
+  right: 1rem;
+}
+
 .nav-links a {
   text-decoration: none;
   color: var(--text-color);
@@ -318,13 +333,6 @@ html, body {
 .nav-links a.active {
   color: var(--accent-color);
   border-bottom: 2px solid var(--accent-color);
-}
-#nav-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
 }
 
 .section {
@@ -598,7 +606,7 @@ html, body {
 
 @media (max-width: 600px) {
   .navbar {
-    justify-content: space-between;
+    justify-content: center;
   }
   #nav-toggle {
     display: block;
