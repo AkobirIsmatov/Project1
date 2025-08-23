@@ -509,9 +509,20 @@ html, body {
 .tagline {
   display: inline-block;
   white-space: pre-wrap;
-  border-right: 2px solid var(--accent-color);
-  padding-right: 0.2rem;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.tagline::after {
+  content: '';
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: 0.2rem;
+  background: var(--accent-color);
   animation: blink-cursor 0.8s steps(2, start) infinite;
+  vertical-align: bottom;
 }
 
 #summary {
