@@ -266,7 +266,7 @@ function populate(data) {
   locLink.href = `https://maps.google.com/?q=${encodeURIComponent(data.contact.location)}`;
   locLink.className = 'contact-link';
   locLink.target = '_blank';
-  locLink.rel = 'noopener';
+  locLink.rel = 'noopener noreferrer';
   locLink.setAttribute('aria-label', 'Location');
   const locIcon = document.createElement('i');
   locIcon.className = 'fa-solid fa-location-dot';
@@ -281,7 +281,7 @@ function populate(data) {
     a.href = p.url;
     a.className = 'contact-link';
     a.target = '_blank';
-    a.rel = 'noopener';
+    a.rel = 'noopener noreferrer';
     a.setAttribute('aria-label', p.site);
     const icon = document.createElement('i');
     const iconClass = profileIcons[p.site] || 'fa-solid fa-link';
