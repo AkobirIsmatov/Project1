@@ -392,6 +392,12 @@ html, body {
   margin-bottom: 1.5rem;
 }
 
+.section ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin: 1rem 0;
+}
+
 .skill-list {
   columns: 2;
   list-style: disc inside;
