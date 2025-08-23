@@ -135,12 +135,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const navLinks = document.querySelectorAll('.nav-links a');
   const navToggle = document.getElementById('nav-toggle');
-  const navLinksContainer = document.querySelector('.nav-links');
+  const navLinksContainer = document.getElementById('nav-links');
   navToggle.addEventListener('click', () => {
-    navLinksContainer.classList.toggle('show');
+    const isOpen = navLinksContainer.classList.toggle('show');
+    navToggle.setAttribute('aria-expanded', isOpen);
   });
   navLinks.forEach(link =>
-    link.addEventListener('click', () => navLinksContainer.classList.remove('show'))
+    link.addEventListener('click', () => {
+      navLinksContainer.classList.remove('show');
+      navToggle.setAttribute('aria-expanded', 'false');
+    })
   );
 
   const sectionObserver = new IntersectionObserver(entries => {
