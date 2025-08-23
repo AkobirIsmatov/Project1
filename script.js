@@ -183,8 +183,14 @@ function populate(data) {
   data.education.forEach(item => {
     const div = document.createElement('div');
     div.classList.add('entry');
-    div.innerHTML = `<h3><i class="fa-solid fa-graduation-cap"></i> ${item.degree}</h3><p>${item.institution} (${item.start_date} – ${item.end_date})</p>`;
-    div.innerHTML = `<h3>${item.degree}</h3><p>${item.institution} (${item.start_date} – ${item.end_date})</p><p>GPA: ${item.gpa}</p>`;
+
+    let html = `<h3><i class="fa-solid fa-graduation-cap"></i> ${item.degree}</h3>`;
+    html += `<p>${item.institution} (${item.start_date} – ${item.end_date})</p>`;
+    if (item.gpa) {
+      html += `<p>GPA: ${item.gpa}</p>`;
+    }
+    div.innerHTML = html;
+
     if (item.notes && item.notes.length) {
       const ul = document.createElement('ul');
       item.notes.forEach(n => {
@@ -257,7 +263,8 @@ function buildJob(role, company) {
 }
 
 function formatPeriod(start, end) {
-  return `${start} – ${end}`;
+  const formattedEnd = end && end.toLowerCase() !== 'present' ? end : 'Present';
+  return `${start} – ${formattedEnd}`;
 }
 
 function titleCase(str) {
@@ -301,7 +308,7 @@ function initMatrix(id) {
     for (let i = 0; i < columns; i++) {
       if (nextRow[i] < rows) {
         if (Math.random() < 0.5) {
-          const char = String.fromCharCode(0x30A0 + Math.random() * 96);
+          const char = String.fromCharCode(0x30A0 + Math.floor(Math.random() * 96));
           glyphs.push({ x: i * fontSize, y: nextRow[i] * fontSize, char, brightness: 1 });
           nextRow[i] += 1;
         }
