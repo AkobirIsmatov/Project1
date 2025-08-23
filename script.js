@@ -65,11 +65,22 @@ document.addEventListener('DOMContentLoaded', () => {
     yearSpan.textContent = new Date().getFullYear();
   }
 
-  fetch('CV_info.json')
-    .then(res => res.json())
-    .then(data => populate(data));
+    fetch('CV_info.json')
+      .then(res => res.json())
+      .then(data => populate(data));
 
-  const sections = document.querySelectorAll('.section');
+    const contactToggle = document.getElementById('contact-toggle');
+    const contactContent = document.getElementById('contact-content');
+    if (contactToggle && contactContent) {
+      contactToggle.addEventListener('click', () => {
+        const isOpen = contactContent.classList.toggle('open');
+        contactToggle.classList.toggle('open', isOpen);
+        contactToggle.setAttribute('aria-expanded', isOpen);
+        contactContent.style.maxHeight = isOpen ? contactContent.scrollHeight + 'px' : 0;
+      });
+    }
+
+    const sections = document.querySelectorAll('.section');
   sections.forEach(sec => sec.classList.add('hidden'));
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -165,20 +176,24 @@ function populate(data) {
     contact.innerHTML += `<p>${p.site}: <a href="${p.url}" class="contact-icon" target="_blank" rel="noopener" aria-label="${p.site}">${animal}</a></p>`;
   });
 
-  document.querySelectorAll('.copy-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const value = btn.getAttribute('data-copy');
-      navigator.clipboard.writeText(value).then(() => {
-        const original = btn.textContent;
-        btn.textContent = '✅';
-        setTimeout(() => {
-          btn.textContent = original;
-        }, 2000);
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const value = btn.getAttribute('data-copy');
+        navigator.clipboard.writeText(value).then(() => {
+          const original = btn.textContent;
+          btn.textContent = '✅';
+          setTimeout(() => {
+            btn.textContent = original;
+          }, 2000);
+        });
       });
     });
-  });
 
-  const skills = document.getElementById('skills-list');
+    if (contact.classList.contains('open')) {
+      contact.style.maxHeight = contact.scrollHeight + 'px';
+    }
+
+    const skills = document.getElementById('skills-list');
   data.skills.forEach(s => {
     const li = document.createElement('li');
     li.innerHTML = `<i class="${getSkillIcon(s)}"></i> ${s}`;
