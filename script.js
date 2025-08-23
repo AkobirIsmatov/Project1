@@ -185,7 +185,9 @@ function populate(data) {
       <button class="copy-btn" data-copy="${data.contact.email}" aria-label="Copy email"><i class="fa-solid fa-copy"></i></button>
     </p>
     <p>
-      <i class="fa-solid fa-location-dot"></i>${data.contact.location}
+      <a href="https://maps.google.com/?q=${encodeURIComponent(data.contact.location)}" class="contact-link" target="_blank" rel="noopener" aria-label="Location">
+        <i class="fa-solid fa-location-dot"></i>${data.contact.location}
+      </a>
     </p>
   `;
   data.contact.profiles.forEach(p => {
