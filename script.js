@@ -126,6 +126,15 @@ document.addEventListener('DOMContentLoaded', () => {
     link.addEventListener('click', () => navLinksContainer.classList.remove('show'))
   );
 
+  const searchInput = document.getElementById('search-input');
+  const searchBtn = document.getElementById('search-btn');
+  if (searchInput && searchBtn) {
+    searchBtn.addEventListener('click', () => {
+      searchBtn.classList.toggle('close');
+      searchInput.classList.toggle('square');
+    });
+  }
+
   const sectionObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       const id = entry.target.getAttribute('id');
