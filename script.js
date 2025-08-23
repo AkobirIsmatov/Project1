@@ -321,15 +321,13 @@ function initMatrix(id) {
   const ctx = canvas.getContext('2d');
   const fontSize = 16;
   let columns = 0;
-  let rows = 0;
-  const glyphs = [];
+  let drops = [];
 
   function resize() {
     canvas.height = window.innerHeight;
     canvas.width = canvas.offsetWidth;
     columns = Math.floor(canvas.width / fontSize);
-    rows = Math.floor(canvas.height / fontSize);
-    glyphs.length = 0;
+    drops = new Array(columns).fill(0);
   }
 
   function randomChar() {
@@ -337,31 +335,27 @@ function initMatrix(id) {
   }
 
   function draw() {
-    ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.font = fontSize + 'px monospace';
+    ctx.shadowBlur = 8;
+    ctx.shadowColor = '#0f0';
 
-    // pop random characters across the canvas
-    if (Math.random() < 0.3) {
-      const x = Math.floor(Math.random() * columns) * fontSize;
-      const y = Math.floor(Math.random() * rows) * fontSize;
-      glyphs.push({ x, y, char: randomChar(), brightness: 1 });
+    for (let i = 0; i < drops.length; i++) {
+      const text = randomChar();
+      const x = i * fontSize;
+      const y = drops[i] * fontSize;
+      ctx.fillStyle = '#0f0';
+      ctx.fillText(text, x, y);
+
+      if (y > canvas.height && Math.random() > 0.975) {
+        drops[i] = 0;
+      }
+
+      drops[i]++;
     }
 
-    for (let g = glyphs.length - 1; g >= 0; g--) {
-      const glyph = glyphs[g];
-      ctx.fillStyle = glyph.brightness > 0.8 ? `rgba(255,255,255,${glyph.brightness})` : `rgba(0,255,0,${glyph.brightness})`;
-      ctx.fillText(glyph.char, glyph.x, glyph.y);
-      if (Math.random() < 0.05) {
-        glyph.char = randomChar();
-      }
-      glyph.brightness -= 0.01;
-      if (glyph.brightness <= 0) {
-        glyphs.splice(g, 1);
-      }
-    }
-
-    setTimeout(() => requestAnimationFrame(draw), 50);
+    requestAnimationFrame(draw);
   }
 
   window.addEventListener('resize', resize);
