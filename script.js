@@ -156,13 +156,26 @@ function populate(data) {
   const phoneIcon = '☎️';
   const emailIcon = '✉️';
   contact.innerHTML = `
-    <p>Phone: <a href="tel:${data.contact.phone}" class="contact-icon" aria-label="Phone">${phoneIcon}</a></p>
-    <p>Email: <a href="mailto:${data.contact.email}" class="contact-icon" aria-label="Email">${emailIcon}</a></p>
+    <p>Phone: <a href="tel:${data.contact.phone}" class="contact-icon" aria-label="Phone">${phoneIcon}</a><button class="copy-btn" data-copy="${data.contact.phone}" aria-label="Copy phone">📋</button></p>
+    <p>Email: <a href="mailto:${data.contact.email}" class="contact-icon" aria-label="Email">${emailIcon}</a><button class="copy-btn" data-copy="${data.contact.email}" aria-label="Copy email">📋</button></p>
     <p>Location: ${data.contact.location}</p>
   `;
   data.contact.profiles.forEach(p => {
     const animal = profileAnimals[p.site] || '🔗';
     contact.innerHTML += `<p>${p.site}: <a href="${p.url}" class="contact-icon" target="_blank" rel="noopener" aria-label="${p.site}">${animal}</a></p>`;
+  });
+
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const value = btn.getAttribute('data-copy');
+      navigator.clipboard.writeText(value).then(() => {
+        const original = btn.textContent;
+        btn.textContent = '✅';
+        setTimeout(() => {
+          btn.textContent = original;
+        }, 2000);
+      });
+    });
   });
 
   const skills = document.getElementById('skills-list');
