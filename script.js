@@ -322,7 +322,6 @@ function initMatrix(id) {
   const fontSize = 16;
   let columns = 0;
   let rows = 0;
-  let nextRow = [];
   const glyphs = [];
 
   function resize() {
@@ -330,8 +329,11 @@ function initMatrix(id) {
     canvas.width = canvas.offsetWidth;
     columns = Math.floor(canvas.width / fontSize);
     rows = Math.floor(canvas.height / fontSize);
-    nextRow = Array(columns).fill(0);
     glyphs.length = 0;
+  }
+
+  function randomChar() {
+    return String.fromCharCode(0x30A0 + Math.floor(Math.random() * 96));
   }
 
   function draw() {
@@ -339,32 +341,27 @@ function initMatrix(id) {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.font = fontSize + 'px monospace';
 
-    // type new characters column by column
-    for (let i = 0; i < columns; i++) {
-      if (nextRow[i] < rows) {
-        if (Math.random() < 0.5) {
-          const char = String.fromCharCode(0x30A0 + Math.floor(Math.random() * 96));
-          glyphs.push({ x: i * fontSize, y: nextRow[i] * fontSize, char, brightness: 1 });
-          nextRow[i] += 1;
-        }
-      } else if (Math.random() < 0.02) {
-        nextRow[i] = 0;
-      }
+    // pop random characters across the canvas
+    if (Math.random() < 0.3) {
+      const x = Math.floor(Math.random() * columns) * fontSize;
+      const y = Math.floor(Math.random() * rows) * fontSize;
+      glyphs.push({ x, y, char: randomChar(), brightness: 1 });
     }
 
-    // draw and fade existing characters
     for (let g = glyphs.length - 1; g >= 0; g--) {
       const glyph = glyphs[g];
-      const b = glyph.brightness;
-      ctx.fillStyle = b > 0.8 ? `rgba(255,255,255,${b})` : `rgba(0,255,0,${b})`;
+      ctx.fillStyle = glyph.brightness > 0.8 ? `rgba(255,255,255,${glyph.brightness})` : `rgba(0,255,0,${glyph.brightness})`;
       ctx.fillText(glyph.char, glyph.x, glyph.y);
-      glyph.brightness -= 0.02;
+      if (Math.random() < 0.05) {
+        glyph.char = randomChar();
+      }
+      glyph.brightness -= 0.01;
       if (glyph.brightness <= 0) {
         glyphs.splice(g, 1);
       }
     }
 
-    requestAnimationFrame(draw);
+    setTimeout(() => requestAnimationFrame(draw), 50);
   }
 
   window.addEventListener('resize', resize);
