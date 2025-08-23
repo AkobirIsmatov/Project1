@@ -93,8 +93,22 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
     fetch('CV_info.json')
-      .then(res => res.json())
-      .then(data => populate(data));
+      .then(res => {
+        if (!res.ok) {
+          throw new Error(`Failed to fetch CV_info.json: ${res.status}`);
+        }
+        return res.json();
+      })
+      .then(data => populate(data))
+      .catch(err => {
+        console.error('Error loading CV_info.json:', err);
+        const container = document.getElementById('main-content');
+        if (container) {
+          const msg = document.createElement('p');
+          msg.textContent = 'Unable to load CV information.';
+          container.appendChild(msg);
+        }
+      });
 
     const contactToggle = document.getElementById('contact-toggle');
     const contactContent = document.getElementById('contact-content');
