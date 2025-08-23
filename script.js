@@ -209,8 +209,14 @@ function populate(data) {
   typeWriter(data.headline, headlineEl, 0, () => {
     headlineEl.classList.remove('tagline');
     summaryEl.classList.add('tagline');
-    typeWriter(data.summary, summaryEl, 0, () => summaryEl.classList.remove('tagline'));
-  });
+    typeWriter(
+      data.summary,
+      summaryEl,
+      0,
+      () => summaryEl.classList.remove('tagline'),
+      50
+    );
+  }, 50);
 
   const contact = document.getElementById('contact-content');
   contact.textContent = '';
@@ -442,10 +448,10 @@ function titleCase(str) {
   return str.replace(/\w+/g, w => w[0].toUpperCase() + w.slice(1));
 }
 
-function typeWriter(text, el, i = 0, done) {
+function typeWriter(text, el, i = 0, done, speed = 100) {
   if (i < text.length) {
     el.textContent += text.charAt(i);
-    setTimeout(() => typeWriter(text, el, i + 1, done), 100);
+    setTimeout(() => typeWriter(text, el, i + 1, done, speed), speed);
   } else if (typeof done === 'function') {
     done();
   }
