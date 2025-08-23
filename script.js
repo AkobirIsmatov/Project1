@@ -71,9 +71,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const switcher = document.querySelector('.switcher');
   if (switcher) {
     const radios = switcher.querySelectorAll('input[type="radio"]');
-    const stored = localStorage.getItem('theme') || 'light';
+    const stored = localStorage.getItem('theme') || 'dark';
     const active = switcher.querySelector(`input[value="${stored}"]`);
     if (active) active.checked = true;
+    if (!localStorage.getItem('theme')) {
+      localStorage.setItem('theme', 'dark');
+    }
     trackPrevious(switcher);
     radios.forEach(radio => {
       radio.addEventListener('change', () => {
