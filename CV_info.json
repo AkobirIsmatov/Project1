@@ -149,6 +149,7 @@
 ]
 },
 "publications": [
+{"title": "Adaptive Broadcast Scheme with Fuzzy Logic and Reinforcement Learning Dynamic Membership Functions in Mobile Ad Hoc Networks", "venue": "Mathematics (MDPI)", "date": "2025-07"},
 {"title": "Fuzzy Logic Based Broadcasting Scheme for Mobile Ad Hoc Network", "venue": "ITNAC, IEEE", "date": "2024-11"},
 {"title": "A New Broadcasting Scheme Based on Reinforcement Learning-Driven Adaptive Fuzzy Logic in Mobile Ad Hoc Networks", "venue": "AINA, Springer", "date": "2025-01"},
 {"title": "IoT-Enhanced Transport and Monitoring of Medicine Using Sensors, MQTT, and Secure Short Message Service", "venue": "IEEE Access", "date": "2024-01"},
