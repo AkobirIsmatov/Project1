@@ -28,6 +28,26 @@ const roleIcons = {
   'Lab Assistant': 'fa-solid fa-vials'
 };
 
+const trackPrevious = (el) => {
+  const radios = el.querySelectorAll('input[type="radio"]');
+  let previousValue = null;
+
+  const initiallyChecked = el.querySelector('input[type="radio"]:checked');
+  if (initiallyChecked) {
+    previousValue = initiallyChecked.getAttribute('c-option');
+    el.setAttribute('c-previous', previousValue);
+  }
+
+  radios.forEach(radio => {
+    radio.addEventListener('change', () => {
+      if (radio.checked) {
+        el.setAttribute('c-previous', previousValue ?? '');
+        previousValue = radio.getAttribute('c-option');
+      }
+    });
+  });
+};
+
 const profileIcons = {
   GitHub: 'fa-brands fa-github',
   LinkedIn: 'fa-brands fa-linkedin',
@@ -48,17 +68,21 @@ function getRoleIcon(title) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  const body = document.body;
-  const toggle = document.getElementById('theme-toggle');
-  const stored = localStorage.getItem('theme');
-  if (stored === 'dark') {
-    body.classList.add('dark');
+  const switcher = document.querySelector('.switcher');
+  if (switcher) {
+    const radios = switcher.querySelectorAll('input[type="radio"]');
+    const stored = localStorage.getItem('theme') || 'light';
+    const active = switcher.querySelector(`input[value="${stored}"]`);
+    if (active) active.checked = true;
+    trackPrevious(switcher);
+    radios.forEach(radio => {
+      radio.addEventListener('change', () => {
+        if (radio.checked) {
+          localStorage.setItem('theme', radio.value);
+        }
+      });
+    });
   }
-  toggle.addEventListener('click', () => {
-    body.classList.toggle('dark');
-    const theme = body.classList.contains('dark') ? 'dark' : 'light';
-    localStorage.setItem('theme', theme);
-  });
 
   const yearSpan = document.getElementById('current-year');
   if (yearSpan) {

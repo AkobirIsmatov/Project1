@@ -28,8 +28,23 @@
       <li><a href="#contact">Contact</a></li>
       <li><a href="assets/Akobir_Ismatov_CV.pdf" download>Download CV</a></li>
     </ul>
-    <button id="theme-toggle" aria-label="Toggle dark mode">🌓</button>
   </nav>
+
+  <fieldset class="switcher">
+    <legend class="switcher__legend">Theme</legend>
+    <label class="switcher__option">
+      <input class="switcher__input" type="radio" name="theme" value="light" c-option="1" checked />
+      <i class="fa-solid fa-sun switcher__icon" aria-hidden="true"></i>
+    </label>
+    <label class="switcher__option">
+      <input class="switcher__input" type="radio" name="theme" value="dark" c-option="2" />
+      <i class="fa-solid fa-moon switcher__icon" aria-hidden="true"></i>
+    </label>
+    <label class="switcher__option">
+      <input class="switcher__input" type="radio" name="theme" value="dim" c-option="3" />
+      <i class="fa-solid fa-cloud-moon switcher__icon" aria-hidden="true"></i>
+    </label>
+  </fieldset>
 
   <header id="about" class="section">
     <img src="ako.jpg" alt="Akobir Ismatov" class="profile-pic" />
