@@ -175,18 +175,25 @@ html, body {
 #contact-content p {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.75rem;
 }
 
-.contact-icon {
-  display: inline-block;
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   text-decoration: none;
-  font-size: 2rem;
   color: inherit;
 }
 
-.contact-icon:hover {
-  animation: bounce 0.6s infinite;
+.contact-link i {
+  font-size: 1.25rem;
+  color: var(--accent-color);
+  transition: transform 0.3s;
+}
+
+.contact-link:hover i {
+  transform: scale(1.1);
 }
 
 .copy-btn {
@@ -273,30 +280,45 @@ html, body {
 }
 
 /* Contact dropdown styles */
+.contact-card {
+  border: 1px solid var(--accent-color);
+  border-radius: 8px;
+  max-width: 400px;
+  margin: 0 auto;
+  background: rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
 .contact-toggle {
+  width: 100%;
   background: none;
   border: none;
   font: inherit;
   color: inherit;
   cursor: pointer;
-  display: inline-flex;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
+  padding: 1rem;
 }
 
-.contact-toggle::after {
-  content: '▼';
-  margin-left: 0.5rem;
+.contact-toggle .toggle-icon {
   transition: transform 0.3s ease;
 }
 
-.contact-toggle.open::after {
+.contact-toggle.open .toggle-icon {
   transform: rotate(180deg);
 }
 
 .contact-content {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.5s ease;
+  transition: max-height 0.5s ease, padding 0.3s ease;
+  padding: 0 1rem;
+}
+
+.contact-content.open {
+  padding: 1rem;
 }
 
 #back-to-top {
