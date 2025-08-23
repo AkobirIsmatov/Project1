@@ -287,8 +287,9 @@ html, body {
   position: sticky;
   top: 4px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
+  gap: 1rem;
   padding: 0.5rem 1rem;
   background: var(--bg-color);
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -596,6 +597,9 @@ html, body {
 }
 
 @media (max-width: 600px) {
+  .navbar {
+    justify-content: space-between;
+  }
   #nav-toggle {
     display: block;
   }
