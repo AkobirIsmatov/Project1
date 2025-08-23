@@ -773,8 +773,37 @@ html, body {
 
 @media (max-width: 800px) {
   .cv-container {
-    display: block;
+    display: flex;
+    flex-direction: column;
     padding: 0 1rem;
+  }
+
+  .content {
+    order: 1;
+  }
+
+  .sidebar {
+    order: 2;
+  }
+
+  #skills {
+    order: 1;
+  }
+
+  #projects {
+    order: 2;
+  }
+
+  #certifications {
+    order: 3;
+  }
+
+  #achievements {
+    order: 4;
+  }
+
+  #contact {
+    order: 5;
   }
 
   .matrix-canvas {
