@@ -209,28 +209,77 @@ function populate(data) {
   });
 
   const contact = document.getElementById('contact-content');
-  contact.innerHTML = `
-    <p>
-      <a href="tel:${data.contact.phone}" class="contact-link" aria-label="Phone">
-        <i class="fa-solid fa-phone"></i>${data.contact.phone}
-      </a>
-      <button class="copy-btn" data-copy="${data.contact.phone}" aria-label="Copy phone"><i class="fa-solid fa-copy"></i></button>
-    </p>
-    <p>
-      <a href="mailto:${data.contact.email}" class="contact-link" aria-label="Email">
-        <i class="fa-solid fa-envelope"></i>${data.contact.email}
-      </a>
-      <button class="copy-btn" data-copy="${data.contact.email}" aria-label="Copy email"><i class="fa-solid fa-copy"></i></button>
-    </p>
-    <p>
-      <a href="https://maps.google.com/?q=${encodeURIComponent(data.contact.location)}" class="contact-link" target="_blank" rel="noopener" aria-label="Location">
-        <i class="fa-solid fa-location-dot"></i>${data.contact.location}
-      </a>
-    </p>
-  `;
+  contact.textContent = '';
+
+  const phoneP = document.createElement('p');
+  const phoneLink = document.createElement('a');
+  phoneLink.href = `tel:${data.contact.phone}`;
+  phoneLink.className = 'contact-link';
+  phoneLink.setAttribute('aria-label', 'Phone');
+  const phoneIcon = document.createElement('i');
+  phoneIcon.className = 'fa-solid fa-phone';
+  phoneLink.appendChild(phoneIcon);
+  phoneLink.appendChild(document.createTextNode(data.contact.phone));
+  phoneP.appendChild(phoneLink);
+  const phoneBtn = document.createElement('button');
+  phoneBtn.className = 'copy-btn';
+  phoneBtn.setAttribute('data-copy', data.contact.phone);
+  phoneBtn.setAttribute('aria-label', 'Copy phone');
+  const phoneBtnIcon = document.createElement('i');
+  phoneBtnIcon.className = 'fa-solid fa-copy';
+  phoneBtn.appendChild(phoneBtnIcon);
+  phoneP.appendChild(phoneBtn);
+  contact.appendChild(phoneP);
+
+  const emailP = document.createElement('p');
+  const emailLink = document.createElement('a');
+  emailLink.href = `mailto:${data.contact.email}`;
+  emailLink.className = 'contact-link';
+  emailLink.setAttribute('aria-label', 'Email');
+  const emailIcon = document.createElement('i');
+  emailIcon.className = 'fa-solid fa-envelope';
+  emailLink.appendChild(emailIcon);
+  emailLink.appendChild(document.createTextNode(data.contact.email));
+  emailP.appendChild(emailLink);
+  const emailBtn = document.createElement('button');
+  emailBtn.className = 'copy-btn';
+  emailBtn.setAttribute('data-copy', data.contact.email);
+  emailBtn.setAttribute('aria-label', 'Copy email');
+  const emailBtnIcon = document.createElement('i');
+  emailBtnIcon.className = 'fa-solid fa-copy';
+  emailBtn.appendChild(emailBtnIcon);
+  emailP.appendChild(emailBtn);
+  contact.appendChild(emailP);
+
+  const locP = document.createElement('p');
+  const locLink = document.createElement('a');
+  locLink.href = `https://maps.google.com/?q=${encodeURIComponent(data.contact.location)}`;
+  locLink.className = 'contact-link';
+  locLink.target = '_blank';
+  locLink.rel = 'noopener';
+  locLink.setAttribute('aria-label', 'Location');
+  const locIcon = document.createElement('i');
+  locIcon.className = 'fa-solid fa-location-dot';
+  locLink.appendChild(locIcon);
+  locLink.appendChild(document.createTextNode(data.contact.location));
+  locP.appendChild(locLink);
+  contact.appendChild(locP);
+
   data.contact.profiles.forEach(p => {
+    const pEl = document.createElement('p');
+    const a = document.createElement('a');
+    a.href = p.url;
+    a.className = 'contact-link';
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.setAttribute('aria-label', p.site);
+    const icon = document.createElement('i');
     const iconClass = profileIcons[p.site] || 'fa-solid fa-link';
-    contact.innerHTML += `<p><a href="${p.url}" class="contact-link" target="_blank" rel="noopener" aria-label="${p.site}"><i class="${iconClass}"></i>${p.site}</a></p>`;
+    icon.className = iconClass;
+    a.appendChild(icon);
+    a.appendChild(document.createTextNode(p.site));
+    pEl.appendChild(a);
+    contact.appendChild(pEl);
   });
 
     document.querySelectorAll('.copy-btn').forEach(btn => {
@@ -251,10 +300,13 @@ function populate(data) {
       contact.style.maxHeight = contact.scrollHeight + 'px';
     }
 
-    const skills = document.getElementById('skills-list');
+  const skills = document.getElementById('skills-list');
   data.skills.forEach(s => {
     const li = document.createElement('li');
-    li.innerHTML = `<i class="${getSkillIcon(s)}"></i> ${s}`;
+    const icon = document.createElement('i');
+    icon.className = getSkillIcon(s);
+    li.appendChild(icon);
+    li.appendChild(document.createTextNode(` ${s}`));
     skills.appendChild(li);
   });
 
@@ -270,12 +322,22 @@ function populate(data) {
     const div = document.createElement('div');
     div.classList.add('entry');
 
-    let html = `<h3><i class="fa-solid fa-graduation-cap"></i> ${item.degree}</h3>`;
-    html += `<p>${item.institution} (${item.start_date} – ${item.end_date})</p>`;
+    const h3 = document.createElement('h3');
+    const gradIcon = document.createElement('i');
+    gradIcon.className = 'fa-solid fa-graduation-cap';
+    h3.appendChild(gradIcon);
+    h3.appendChild(document.createTextNode(` ${item.degree}`));
+    div.appendChild(h3);
+
+    const periodP = document.createElement('p');
+    periodP.textContent = `${item.institution} (${item.start_date} – ${item.end_date})`;
+    div.appendChild(periodP);
+
     if (item.gpa) {
-      html += `<p>GPA: ${item.gpa}</p>`;
+      const gpaP = document.createElement('p');
+      gpaP.textContent = `GPA: ${item.gpa}`;
+      div.appendChild(gpaP);
     }
-    div.innerHTML = html;
 
     if (item.notes && item.notes.length) {
       const ul = document.createElement('ul');
@@ -315,7 +377,14 @@ function populate(data) {
   const publications = document.getElementById('publications-list');
   data.publications.forEach(pub => {
     const li = document.createElement('li');
-    li.innerHTML = `<strong>${pub.title}</strong>, <em>${pub.venue}</em> (${pub.date})`;
+    const strong = document.createElement('strong');
+    strong.textContent = pub.title;
+    li.appendChild(strong);
+    li.appendChild(document.createTextNode(', '));
+    const em = document.createElement('em');
+    em.textContent = pub.venue;
+    li.appendChild(em);
+    li.appendChild(document.createTextNode(` (${pub.date})`));
     publications.appendChild(li);
   });
 
@@ -337,7 +406,19 @@ function populate(data) {
 function buildJob(role, company) {
   const div = document.createElement('div');
   div.classList.add('entry');
-  div.innerHTML = `<h3><i class="${getRoleIcon(role.title)}"></i> ${role.title} — ${company}</h3><p class="period">${formatPeriod(role.start_date, role.end_date)}</p>`;
+
+  const h3 = document.createElement('h3');
+  const icon = document.createElement('i');
+  icon.className = getRoleIcon(role.title);
+  h3.appendChild(icon);
+  h3.appendChild(document.createTextNode(` ${role.title} — ${company}`));
+  div.appendChild(h3);
+
+  const periodP = document.createElement('p');
+  periodP.classList.add('period');
+  periodP.textContent = formatPeriod(role.start_date, role.end_date);
+  div.appendChild(periodP);
+
   const ul = document.createElement('ul');
   role.highlights.forEach(h => {
     const li = document.createElement('li');
