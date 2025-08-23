@@ -28,10 +28,10 @@ const roleIcons = {
   'Lab Assistant': 'fa-solid fa-vials'
 };
 
-const profileAnimals = {
-  GitHub: '🐱',
-  LinkedIn: '🦊',
-  TryHackMe: '🐱‍💻'
+const profileIcons = {
+  GitHub: 'fa-brands fa-github',
+  LinkedIn: 'fa-brands fa-linkedin',
+  TryHackMe: 'fa-solid fa-user-secret'
 };
 
 function getSkillIcon(skill) {
@@ -171,26 +171,37 @@ function populate(data) {
   });
 
   const contact = document.getElementById('contact-content');
-  const phoneIcon = '☎️';
-  const emailIcon = '✉️';
   contact.innerHTML = `
-    <p>Phone: <a href="tel:${data.contact.phone}" class="contact-icon" aria-label="Phone">${phoneIcon}</a><button class="copy-btn" data-copy="${data.contact.phone}" aria-label="Copy phone">📋</button></p>
-    <p>Email: <a href="mailto:${data.contact.email}" class="contact-icon" aria-label="Email">${emailIcon}</a><button class="copy-btn" data-copy="${data.contact.email}" aria-label="Copy email">📋</button></p>
-    <p>Location: ${data.contact.location}</p>
+    <p>
+      <a href="tel:${data.contact.phone}" class="contact-link" aria-label="Phone">
+        <i class="fa-solid fa-phone"></i>${data.contact.phone}
+      </a>
+      <button class="copy-btn" data-copy="${data.contact.phone}" aria-label="Copy phone"><i class="fa-solid fa-copy"></i></button>
+    </p>
+    <p>
+      <a href="mailto:${data.contact.email}" class="contact-link" aria-label="Email">
+        <i class="fa-solid fa-envelope"></i>${data.contact.email}
+      </a>
+      <button class="copy-btn" data-copy="${data.contact.email}" aria-label="Copy email"><i class="fa-solid fa-copy"></i></button>
+    </p>
+    <p>
+      <i class="fa-solid fa-location-dot"></i>${data.contact.location}
+    </p>
   `;
   data.contact.profiles.forEach(p => {
-    const animal = profileAnimals[p.site] || '🔗';
-    contact.innerHTML += `<p>${p.site}: <a href="${p.url}" class="contact-icon" target="_blank" rel="noopener" aria-label="${p.site}">${animal}</a></p>`;
+    const iconClass = profileIcons[p.site] || 'fa-solid fa-link';
+    contact.innerHTML += `<p><a href="${p.url}" class="contact-link" target="_blank" rel="noopener" aria-label="${p.site}"><i class="${iconClass}"></i>${p.site}</a></p>`;
   });
 
     document.querySelectorAll('.copy-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const value = btn.getAttribute('data-copy');
+        const icon = btn.querySelector('i');
+        const original = icon.className;
         navigator.clipboard.writeText(value).then(() => {
-          const original = btn.textContent;
-          btn.textContent = '✅';
+          icon.className = 'fa-solid fa-check';
           setTimeout(() => {
-            btn.textContent = original;
+            icon.className = original;
           }, 2000);
         });
       });
