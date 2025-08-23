@@ -359,7 +359,7 @@ function initMatrix(id) {
   const fontSize = 10;
   let columns = 0;
   let drops = [];
-  const letters = 'ABCDEFGHIJKLMNOPQRSTUVXYZ'.repeat(6).split('');
+  const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.repeat(6).split('');
 
   function resize() {
     canvas.height = window.innerHeight;
