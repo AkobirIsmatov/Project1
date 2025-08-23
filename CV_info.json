@@ -50,7 +50,7 @@
 "highlights": [
 "Implemented current SIEM solution for the company, and further integrating it with 3rd party systems such as Malware analysis, Suricata/Snort as IDS/IPS, XDR with active scripts & AV solutions such as VT, implemented open-source AI models such as DeepseekR1, Gwen, oss-gpt for CTI/Data enrichment and more. (Used Wazuh, Splunk).",
 "Conducted full-scope penetration testing on company assets including web applications, networks, IoT devices, and internal infrastructure (using manual and automated tools such as Nessus and Tenable).",
-"Implemented RMM solution for patching, vulnerability management, system hardening, and remote management (Action1 and NinjaOne).",
+"Implemented current in use RMM solution for patching, vulnerability management, system hardening, and remote management (Action1 and NinjaOne).",
 "IT hygiene and asset inventory management; monitored and removed data leaks on web/dark web, forums, and other data pawn locations.",
 "Lead the development of company-wide cybersecurity awareness materials, guides, and training."
 ]
