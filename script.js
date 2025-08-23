@@ -163,17 +163,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  document.addEventListener('mousemove', e => {
-    const x = (e.clientX / window.innerWidth - 0.5) * 10;
-    const y = (e.clientY / window.innerHeight - 0.5) * 10;
-    sections.forEach(sec => {
+  sections.forEach(sec => {
+    sec.addEventListener('mousemove', e => {
+      const rect = sec.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width - 0.5) * 10;
+      const y = -((e.clientY - rect.top) / rect.height - 0.5) * 10;
       sec.style.setProperty('--tiltX', `${x}deg`);
-      sec.style.setProperty('--tiltY', `${-y}deg`);
+      sec.style.setProperty('--tiltY', `${y}deg`);
     });
-  });
 
-  document.addEventListener('mouseleave', () => {
-    sections.forEach(sec => {
+    sec.addEventListener('mouseleave', () => {
       sec.style.setProperty('--tiltX', '0deg');
       sec.style.setProperty('--tiltY', '0deg');
     });
