@@ -179,8 +179,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  initMatrix('matrix-left');
-  initMatrix('matrix-right');
   initCodeBackground();
 });
 
